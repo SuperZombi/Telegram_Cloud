@@ -1,0 +1,347 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url(../fonts/Ubuntu.ttf);
+}
+
+#head{
+	white-space: nowrap;
+	width: 374px;
+}
+#Path{
+	font: 14pt "Ubuntu";
+	color: grey;
+	margin-bottom: 10px;
+	margin-left: 3px;
+	display: inline-block;
+}
+.path_link{
+	padding: 2px;
+	border: 1px solid transparent;
+	border-radius: 15%;
+	transition: 0.2s;
+	cursor: pointer;
+}
+.path_link:hover{
+	background-color: lightgrey;
+	border: 1px solid lightgrey;
+}
+
+#more_button{
+	height: 30px;
+	border: 3px solid;
+	padding: 5px;
+	border-radius: 50%;
+	transition: 0.15s;
+	display: inline-block;
+	float: right;
+	z-index: 2;
+	user-select: none;
+}
+#more_button img{
+	height: 30px;
+}
+#more_button:hover{
+	border-radius: 40%;
+	cursor: pointer;
+}
+
+#show_full_path{
+	margin-left: auto;
+}
+#show_full_path:hover{
+	filter: drop-shadow(0 0 5px green);
+}
+
+#back{
+	margin-top: 2px;
+	background-color: #FFC46E;
+	cursor: pointer;
+	transition: 0.2s;
+	height: 16px;
+}
+#back:hover{
+	background-color: #FFA11B;
+	transition: 0.2s;	
+}
+#back:active{
+	background-color: #D98000;
+	transition: 0.2s;	
+}
+#back img{
+	position: relative;
+	margin-left: 8px;
+	top: -2px;
+}
+
+.element{
+	border: 2px solid;
+	padding: 2px;
+	width: 300px;
+	display: flex;
+	transition: 0.2s;
+	border-radius: 5px;
+	margin-bottom: 3px;
+}
+.element img{
+	height: 21px;
+	user-select: none;
+}
+.element_name{
+	font: 15pt "Ubuntu";
+	display: block;
+	vertical-align: top;
+	margin-left: 3px;
+	user-select: none;
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.functions{
+	display: none;
+	margin-left: auto;
+	white-space: nowrap;
+}
+.functions img{
+	height: 20px;
+	margin: 0px 2px 0px 2px;
+	vertical-align: middle;
+	transition: 0.15s;
+}
+.functions img:hover{
+	filter: drop-shadow(0 0 5px red);
+}
+.element:hover .functions{
+	display: block;
+}
+
+
+hr{
+	width: 305px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.folder:hover{
+	background-color: lightblue;
+	transition: 0.2s;
+	cursor: pointer;
+	border-radius: 9px;
+}
+.folder:active{
+	background-color: #00C0FF;
+	transition: 0.2s;
+}
+
+.file:hover{
+	background-color: #FFF5A9;
+	transition: 0.2s;
+	cursor: pointer;
+	border-radius: 8px;
+}
+.file:active{
+	background-color: #FFF440;
+	transition: 0.2s;
+}
+
+
+#FileBrowser{
+	border: 2px solid grey;
+	display: inline-block;
+	padding: 3px;
+	min-width: 308px;
+	min-height: 130px;
+}
+
+#More{
+	margin-left: 11px;
+	margin-top: -200px;
+	position: absolute;
+	display: inline-block;
+	z-index: 2;
+	opacity: 0;
+	transition: 0.3s;
+	user-select: none;
+}
+
+#more_block{
+	display: block;
+}
+.more_block_element{
+	display: table;
+	margin-top: 2px;
+	margin-bottom: 4px;
+}
+.flex_elem{
+	height: 30px;
+	border: 3px solid;
+	padding: 5px;
+	border-radius: 50%;
+	background-color: white;
+	transition: 0.15s;
+}
+.flex_elem img{
+	height: 30px;
+}
+.flex_elem:hover{
+	border-radius: 40%;
+	cursor: pointer;
+}
+
+#new_folder{
+	top: 14px;
+	left: 55px;
+	display: none;
+	position: absolute;
+	white-space: nowrap;
+}
+
+div.disabled{
+  pointer-events: none;
+  opacity: 0.5;
+  background: #CCC;
+}
+
+#Uploader{
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: top;
+  padding: 20px;
+  display: inline-block;
+  position: absolute;
+  transition: 0.4s;
+}
+
+input[type = "text"]{
+  font: 14pt "Ubuntu";
+  border: 0;
+  background: none;
+  text-align: center;
+  border: 2px solid blue;
+  padding: 8px 5px;
+  width: 320px;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.3s;
+  margin-right: 5px;
+}
+
+input[type = "submit"]{
+  cursor: pointer;
+}
+button{
+	cursor: pointer;
+}
+
+.Browse{
+	font: 14pt "Ubuntu";
+	margin: 5px;
+	-webkit-text-stroke: 0.7px black;
+	background: none;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 14px 10px;
+	width: 150px;
+	outline: none;
+	border-radius: 24px;
+	transition: 0.2s;
+}
+
+.Browse:hover{
+  width: 180px;
+  border-color: yellow !important;
+  cursor: pointer;
+}
+
+.Browse:active{
+	border-color: green !important;
+}
+
+progress{
+	display: block;
+}
+.progress_text{
+	display: block;
+}
+
+#background{
+	transition: 0.5s;
+}
+#background_disabled{
+	height: 98vh;
+	width: 98vw;
+}
+#details{
+	position: absolute;
+	background-color: white;
+	height: 80%;
+	width: 70%;
+
+    top: -200%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    opacity: 0;
+    transition: 0.5s;
+	
+	display: flex;
+	/*align-items: center;*/
+	justify-content: center;
+	z-index: 3;
+	border: 2px solid;
+	filter: drop-shadow(4px 4px 5px black);
+}
+#img_details{
+	height: 180px;
+	margin-top: 90px;
+	position: absolute;
+	user-select: none;
+}
+#download{
+	position: absolute;
+	bottom: 20px;
+}
+#progress_area2{
+	position: absolute;
+	bottom: 2px;
+	display: none;
+}
+#progress_bar2{
+	display: inline-block;
+}
+#progress_text2{
+	position: absolute;
+	margin-left: 5px;
+}
+#gotofile_button{
+	position: absolute;
+	display: inline-block;
+	bottom: 0px;
+	margin-left: 50px;
+}
+.close {
+	position: absolute;
+	right: 0;
+    color: white;
+    margin-right: 10px;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    -webkit-text-stroke: 0.5px black;
+    transition: 0.1s;
+}
+.close:hover{
+	color: red; 
+	filter: drop-shadow(0px 0px 1px darkred);
+}
+#file_size{
+	position: absolute;
+	margin-top: 280px;
+}

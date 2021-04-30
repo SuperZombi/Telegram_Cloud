@@ -1,0 +1,81 @@
+body{
+  font-family: sans-serif;
+  background: #34495e;
+}
+
+#help{
+  color: yellow;
+  font-size: 15pt;
+  font-style: italic;
+  text-decoration: none;
+}
+#help:hover{
+  text-decoration: underline white;
+}
+
+.box{
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #191919;
+  text-align: center;
+  border-radius: 15px;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.box h1{
+  color: white;
+  text-transform: uppercase;
+  font-size: 18pt;
+  margin: 5px;
+}
+
+.box input{
+  border:0;
+  background: none;
+  display: inline-block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 16px;
+}
+.box input:focus{
+  width: 280px;
+  border-color: yellow !important;
+}
+
+.box input[type = "submit"]{
+  margin-top: 25px;
+}
+
+.can_submit{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71 !important;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.can_submit:hover{
+  background: #2ecc71 !important;
+}
+
+#enter{
+  margin-bottom: 20px;
+}
