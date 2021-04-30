@@ -6,11 +6,11 @@
 
 Version: <code>1.0</code>
 
-</br></br></br></br></br>
+</br></br></br></br>
 
 ### Required Python libraries:
 
 <ul>
- <li><a href="https://pypi.org/project/Pyrogram/" target="_blank">pyrogram</a></li>
-  <li><a href="https://pypi.org/project/Eel/" target="_blank">eel</a></li>
+ <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
+  <li><a href="https://pypi.org/project/Eel/">eel</a></li>
 </ul>
