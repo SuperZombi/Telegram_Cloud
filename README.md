@@ -8,6 +8,8 @@ Version: <code>1.0</code>
 
 </br></br></br>
 
+### <a href="https://superzombi.github.io/Telegram_Cloud/">Instructions</a>
+
 ### Required Python libraries:
 
 <ul>
@@ -17,9 +19,6 @@ Version: <code>1.0</code>
 
 </br>
 
-### <a href="https://superzombi.github.io/Telegram_Cloud/">Instructions</a>
-
-</br>
 
 ### Limitations:
 
