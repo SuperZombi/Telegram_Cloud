@@ -14,3 +14,21 @@ Version: <code>1.0</code>
  <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
   <li><a href="https://pypi.org/project/Eel/">eel</a></li>
 </ul>
+
+</br></br>
+
+### Limitations:
+
+<ul>
+ <li>Number of files: infinite</li>
+  <li>Single file size: 2 GB</li>
+</ul>
+</br>
+
+### Ограничения:
+
+<ul>
+ <li>Количество файлов: бесконечно</li>
+  <li>Размер одного файла: 2 ГБ</li>
+</ul>
+
