@@ -23,7 +23,6 @@ Version: <code>1.0</code>
  <li>Number of files: infinite</li>
   <li>Single file size: 2 GB</li>
 </ul>
-</br>
 
 ### Ограничения:
 
