@@ -1,11 +1,3 @@
-var player1 = new Playerjs({id:"player1", file:"docs/Authorization instructions.mp4"});
-var player2 = new Playerjs({id:"player2", file:"docs/Upload your files.mp4"});
-var player3 = new Playerjs({id:"player3", file:"docs/Работа с папками.mp4"});
-var player4 = new Playerjs({id:"player4", file:"docs/Переименование и перемещение.mp4"});
-var player5 = new Playerjs({id:"player5", file:"docs/Скачивание_удаление.mp4"});
- 
-
-// Canvas
 var c=document.getElementById("nightsky");
 var $k=c.getContext("2d");
 var w=c.width=window.innerWidth;
