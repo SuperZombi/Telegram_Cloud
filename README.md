@@ -17,7 +17,7 @@ Version: <code>1.0</code>
 
 ### <a href="https://superzombi.github.io/Telegram_Cloud/">Instructions</a>
 
-</br></br>
+</br>
 
 ### Limitations:
 
