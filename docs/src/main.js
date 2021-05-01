@@ -5,6 +5,7 @@ var player4 = new Playerjs({id:"player4", file:"docs/Переименовани�
 var player5 = new Playerjs({id:"player5", file:"docs/Скачивание_удаление.mp4"});
 
 
+// Canvas
 var c=document.getElementById("nightsky");
 var $k=c.getContext("2d");
 var w=c.width=window.innerWidth;
