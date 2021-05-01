@@ -15,6 +15,8 @@ Version: <code>1.0</code>
   <li><a href="https://pypi.org/project/Eel/">eel</a></li>
 </ul>
 
+### <a href="https://superzombi.github.io/Telegram_Cloud/">Instructions</a>
+
 </br></br>
 
 ### Limitations:
