@@ -6,7 +6,7 @@
 
 Version: <code>1.0</code>
 
-</br></br></br></br>
+</br></br></br>
 
 ### Required Python libraries:
 
@@ -14,6 +14,8 @@ Version: <code>1.0</code>
  <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
   <li><a href="https://pypi.org/project/Eel/">eel</a></li>
 </ul>
+
+</br>
 
 ### <a href="https://superzombi.github.io/Telegram_Cloud/">Instructions</a>
 
