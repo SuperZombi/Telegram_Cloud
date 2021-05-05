@@ -6,16 +6,46 @@ import time
 from os import startfile
 import eel
 from os.path import exists
+from bs4 import BeautifulSoup
+import requests
 
 phone = ""
 started = False
 PATH = []
 current_path = "/"
+current_sort = "by_alphabet"
+__version__ = 1.1
 
 CONTENT_TYPES = ["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact",
                  "new_chat_members", "left_chat_member", "new_chat_title", "new_chat_photo", "delete_chat_photo",
                  "group_chat_created", "supergroup_chat_created", "channel_chat_created", "migrate_to_chat_id",
                  "migrate_from_chat_id", "pinned_message"]
+
+HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'}
+
+@eel.expose
+def sort_by(what):
+	global current_sort
+	if what == current_sort:
+		current_sort = str(what) + "_reverse"
+	else:
+		current_sort = what
+
+@eel.expose()
+def get_curent_arrow():
+	return current_sort
+
+@eel.expose()
+def check_updates():
+	response = requests.get('https://github.com/SuperZombi/Telegram_Cloud')
+	soup = BeautifulSoup(response.content, 'html.parser')
+	git_ver = float(soup.select('#user-content-version')[0].find('code').get_text())
+	if __version__ != git_ver:
+		change_list = soup.select('#user-content-change_list')[0]
+		return {'new_updates': True, 'old_version': str(__version__), 'new_version': str(git_ver), 'change_list': str(change_list)}
+	else:
+		return {'new_updates': False}
+
 
 @eel.expose
 def create_config(api_id, api_hash, phone_number):
@@ -60,6 +90,22 @@ def file_exists(file):
 		if i == file:
 			return True
 	return False
+
+
+@eel.expose
+def read_path():
+	global PATH
+	PATH = []
+	try:
+		with open('path.bd', 'r', encoding = 'utf-8') as file:
+			F = file.readlines()
+			for i in F:
+				PATH.append(eval(i)[0])
+
+		return PATH
+	except:
+		None
+
 
 @eel.expose
 def upload(array, path):
@@ -108,23 +154,10 @@ def save_current_path(path):
 	global current_path
 	current_path = path
 
-@eel.expose
-def read_path():
-	global PATH
-	PATH = []
-	try:
-		with open('path.bd', 'r', encoding = 'utf-8') as file:
-			F = file.readlines()
-			for i in F:
-				PATH.append(eval(i)[0])
-
-		return PATH
-	except:
-		None
-
 
 @eel.expose
 def build_path(path):
+	global current_sort
 	array = read_path()
 	if array:
 		temp_path = path.split("/")[1:-1]
@@ -156,8 +189,20 @@ def build_path(path):
 				if not i[0] in folders:
 					folders.append(i[0])
 
-		return {'folders': sorted(folders), 'files': sorted(files)}
-
+		if current_sort == "by_alphabet":
+			return {'folders': sorted(folders), 'files': sorted(files)}
+		if current_sort == "by_alphabet_reverse":
+			folders = sorted(folders)
+			folders.reverse()
+			files = sorted(files)
+			files.reverse()
+			return {'folders': folders, 'files': files}
+		if current_sort == "by_date":
+			return {'folders': folders, 'files': files}
+		if current_sort == "by_date_reverse":
+			folders.reverse()
+			files.reverse()
+			return {'folders': folders, 'files': files}
 
 @eel.expose
 def create_folder(path):
