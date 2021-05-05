@@ -4,7 +4,7 @@
 
 ### A client with its own hierarchy of folders, which uses the Telegram server like a cloud
 
-Version: <code>1.0</code>
+Version: <a id="version"><code>1.0</code></a>
 
 </br></br></br>
 
