@@ -1,7 +1,54 @@
 async function main(){
 	await eel.starting()();
 	document.getElementById('path_str').innerHTML = await eel.get_saved_path()();
+	setup_arrow();
 	await gotopath(document.getElementById('path_str').innerHTML, auto=true);
+}
+
+async function setup_arrow(){
+	curent_arrow = await eel.get_curent_arrow()();
+	if (curent_arrow == "by_alphabet"){
+		document.getElementById("by_alphabet_arrow").innerHTML = "&darr;";
+		document.getElementById("by_date_arrow").innerHTML = "";
+	}
+	if (curent_arrow == "by_alphabet_reverse"){
+		document.getElementById("by_alphabet_arrow").innerHTML = "&uarr;";
+		document.getElementById("by_date_arrow").innerHTML = "";
+	}
+	if (curent_arrow == "by_date"){
+		document.getElementById("by_alphabet_arrow").innerHTML = "";
+		document.getElementById("by_date_arrow").innerHTML = "&darr;";
+	}
+	if (curent_arrow == "by_date_reverse"){
+		document.getElementById("by_alphabet_arrow").innerHTML = "";
+		document.getElementById("by_date_arrow").innerHTML = "&uarr;";
+	}
+}
+
+showed_updates_menu = false;
+async function check_updates(){
+	document.body.style.cursor = "wait";
+	document.getElementById('check_update').style.cursor = "wait";
+	unswer = await eel.check_updates()();
+	if (unswer['new_updates']){
+		showed_updates_menu = true;
+		document.getElementById("updates_menu").style.display = "block";
+		document.getElementById("new_version").innerHTML = unswer['new_version'];
+		document.getElementById("old_version").innerHTML = unswer['old_version'];
+		document.getElementById("change_list").innerHTML = unswer['change_list'];
+	}
+	else{
+		alert("Нет обновлений!")
+	}
+	document.body.style.cursor = "auto";
+	document.getElementById('check_update').style.cursor = "pointer";
+}
+function hide_updates_menu(){
+	showed_updates_menu = false;
+	document.getElementById("updates_menu").style.display = "none";
+}
+async function goto_git_hub(){
+	eel.goto_git_hub()();
 }
 
 function build_progress(elem, id){
@@ -121,12 +168,21 @@ async function build_browser(array){
 	$(back).attr("title", "< Назад");
 	$(back).attr("onclick", "change_dir('back')");
 
-
 	let back_img = document.createElement('img');
 	$(back_img).attr("src", "images/more.png");
-
 	back.appendChild(back_img);
 	browser.appendChild(back);
+
+	// Кнопка сортировки
+	let sort = document.createElement('div');
+	$(sort).attr("id", "sorting");
+	$(sort).attr("title", "Сортировка");
+	$(sort).attr("onclick", "show_sort_menu(event)");
+
+	let sort_img = document.createElement('img');
+	$(sort_img).attr("src", "images/sorting.png");
+	sort.appendChild(sort_img);
+	browser.appendChild(sort);
 
 	// hr
 	hr = document.createElement('hr');
@@ -227,7 +283,9 @@ async function build_path(){
 	path = document.getElementById('path_str').innerHTML;
 	clip_path();
 	array = await eel.build_path(path)();
-	await build_browser(array);
+	if (array != null){
+		await build_browser(array);
+	}
 }
 
 
@@ -522,11 +580,13 @@ show_event = false;
 async function new_folder(what=""){
 	if (what == "create"){
 		name = document.getElementById('name').value;
-		temp_arr = array['folders'];
-		for(var i = 0; i < temp_arr.length; i++) {
-			if (temp_arr[i] == name){
-				alert("Эта папка уже существует!");
-				return;
+		if (array != null){
+			temp_arr = array['folders'];
+			for(var i = 0; i < temp_arr.length; i++) {
+				if (temp_arr[i] == name){
+					alert("Эта папка уже существует!");
+					return;
+				}
 			}
 		}
 		await eel.create_folder(document.getElementById('path_str').innerHTML + name + "/")();
@@ -626,6 +686,12 @@ function escape(event){
 		if (detail_showed){
 			hide_details();
 		}
+		else if (showed_updates_menu){
+			hide_updates_menu();
+		}
+		else if (showed_sort_menu){
+			hide_sort_menu();
+		}
 		else if (show_event){
 			document.getElementById('new_folder').style.display = "none";
 			show_event = false;
@@ -710,4 +776,31 @@ async function download(){
 			alert("Ошибка! Не удалось скачать файл!");
 		}
 	}
+}
+
+showed_sort_menu = false;
+async function show_sort_menu(e){
+	if (!showed_sort_menu){
+		document.getElementById("sort_menu").style.display = "block";
+		await new Promise(resolve => setTimeout(resolve, 0));
+		x = e.clientX
+		y = e.clientY
+		document.getElementById("sort_menu").style.top = y + "px";
+		document.getElementById("sort_menu").style.left = x + "px";
+		document.getElementById("sort_menu").style.transform = "scale(1)"
+		setTimeout(function() {showed_sort_menu = true;}, 50)
+	}
+}
+function hide_sort_menu(){
+	if (showed_sort_menu){
+		document.getElementById("sort_menu").style.display = "none";
+		document.getElementById("sort_menu").style.transform = "scale(0)"
+		showed_sort_menu = false;
+	}
+}
+
+async function sort_by(what){
+	await eel.sort_by(what);
+	setup_arrow();
+	build_path();
 }
