@@ -25,6 +25,87 @@
 	background-color: lightgrey;
 	border: 1px solid lightgrey;
 }
+#sorting{
+	padding: 3px;
+	display: inline-flex;
+	cursor: pointer;
+	border: 2px solid;
+	position: relative;
+	top: -6px;
+	margin-left: 4px;
+	border-radius: 5px 5px;
+	transition: 0.15s;
+}
+#sorting:hover{
+	border-radius: 8px 8px;
+}
+#sorting img{
+	height: 15px;
+}
+#sort_menu{
+	display: none;
+	position: absolute;
+	background-color: white;
+	width: 200px;
+	z-index: 5;
+	transform: scale(0);
+	transition: 0.2s;
+	transform-origin: left top;
+	filter: drop-shadow(2px 2px 6px black)
+}
+#sortirovka{
+	font: 14pt "Ubuntu";
+	margin: 2px;
+	margin-bottom: 5px;	
+}
+.arrow{
+	display: inline-block;
+	margin-bottom: 1px;
+	font-size: 13pt;
+}
+.sort_elem{
+	font: 12pt "Ubuntu";
+	border: 2px solid;
+	margin: 2px;
+	transition: 0.15s;
+	cursor: pointer;
+}
+.sort_elem:hover{
+	border-radius: 8px;
+	background-color: lightgrey;
+}
+
+#updates_menu{
+	position: absolute;
+	height: 60%;
+	width: 40%;
+	background-color: white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 5;
+    filter: drop-shadow(2px 2px 5px black);
+    display: none;
+}
+
+.version{
+	display: inline-block;
+	margin-left: 10px;
+	background-color: lightgrey;
+	padding: 4px;
+	border-radius: 30%;
+}
+#old_version{
+	background-color: rgb(255, 0, 0, 0.3);
+}
+#change_list{
+	text-overflow: clip;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 29vh;
+}
 
 #more_button{
 	height: 30px;
@@ -53,11 +134,13 @@
 }
 
 #back{
+	display: inline-flex;
 	margin-top: 2px;
 	background-color: #FFC46E;
 	cursor: pointer;
 	transition: 0.2s;
 	height: 16px;
+	width: 85.7%;
 }
 #back:hover{
 	background-color: #FFA11B;
