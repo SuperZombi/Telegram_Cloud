@@ -286,6 +286,9 @@ async function build_path(){
 	if (array != null){
 		await build_browser(array);
 	}
+	else{
+		document.getElementById('FileBrowser').innerHTML = "";
+	}
 }
 
 
