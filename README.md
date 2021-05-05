@@ -15,6 +15,8 @@ Version: <a id="version"><code>1.0</code></a>
 <ul>
  <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
   <li><a href="https://pypi.org/project/Eel/">eel</a></li>
+ <li><a href="https://pypi.org/project/requests/">requests</a></li>
+ <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
 </ul>
 
 </br>
