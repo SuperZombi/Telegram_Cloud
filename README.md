@@ -8,7 +8,7 @@ Version: <a id="version"><code>1.1</code></a>
 
 </br></br></br>
 
-### How to use the program: <a href="https://superzombi.github.io/Telegram_Cloud/">Instructions</a>
+### How to authorize and use the program: <a href="https://superzombi.github.io/Telegram_Cloud/">Instructions</a>
 
 ### Required Python libraries:
 
