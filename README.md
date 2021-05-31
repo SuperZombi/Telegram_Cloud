@@ -4,7 +4,7 @@
 
 ### A client with its own hierarchy of folders, which uses the Telegram server like a cloud
 
-Version: <a id="version"><code>1.2</code></a>
+Version: <a id="version"><code>1.2.1</code></a>
 
 </br></br></br>
 
@@ -55,6 +55,19 @@ Version: <a id="version"><code>1.2</code></a>
 <div id="change_list">
 Добавлено:
 <ul>
+ <li>Тёмная тема</li>
+</ul>
+</div>
+ 
+ 
+ </br></br>
+ <details>
+ <summary>Предыдущие обновления:</summary>
+ <table>
+   <tr><td>1.2</td>
+  <td>
+Добавлено:
+<ul>
  <li>Поиск файлов</li>
   <li>Красивые уведомления</li>
 </ul>
@@ -63,14 +76,10 @@ Version: <a id="version"><code>1.2</code></a>
  <li> Исправлена ошибка карусельного меню</li>
   <li>Кнопка GitHub переехала в карусельное меню</li>
 </ul>
-</div>
- 
- </br></br>
- <details>
- <summary>Предыдущие обновления:</summary>
- 
- <table><tr>
-  <td>1.1</td>
+ </td></tr> 
+  
+  
+  <tr><td>1.1</td>
   <td>
  Добавлено:
 <ul>
