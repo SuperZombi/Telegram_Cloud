@@ -63,9 +63,9 @@ Version: <a id="version"><code>1.2</code></a>
  <li> Исправлена ошибка карусельного меню</li>
   <li>Кнопка GitHub переехала в карусельное меню</li>
 </ul>
- </div>
+
  
- </br></br>
+ </br>
  <details>
  <summary>Предыдущие обновления:</summary>
  
@@ -84,3 +84,4 @@ Version: <a id="version"><code>1.2</code></a>
  </td></tr>
  </table>
 </details>
+ </div>
