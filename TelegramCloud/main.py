@@ -48,7 +48,7 @@ def check_updates():
 
 
 @eel.expose()
-def check_updates_or_no():
+def auto_check_update():
 	return check_updates()['new_updates']
 
 @eel.expose
