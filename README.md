@@ -56,6 +56,7 @@ Version: <a id="version"><code>1.3</code></a>
 Добавлено:
 <ul>
  <li>Тёмная тема</li>
+ <li>Авто проверка обновлений</li>
 </ul>
 </div>
  
