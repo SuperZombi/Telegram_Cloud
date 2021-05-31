@@ -14,7 +14,7 @@ started = False
 PATH = []
 current_path = "/"
 current_sort = "by_alphabet"
-__version__ = 1.2
+__version__ = 1.2.1
 
 CONTENT_TYPES = ["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact",
                  "new_chat_members", "left_chat_member", "new_chat_title", "new_chat_photo", "delete_chat_photo",
@@ -69,6 +69,31 @@ def starting():
 		app.start()
 		if first_time:
 			app.send_message('TelegCloudyBot', "/start")
+
+@eel.expose
+def check_theme():
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+			return lines["theme"]
+
+	except FileNotFoundError:
+		return False
+
+@eel.expose
+def save_theme(theme_name):
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+
+	except FileNotFoundError:
+		lines = {}
+
+	lines["theme"] = theme_name
+	with open('settings.json', 'w', encoding = 'utf-8') as file:
+		x = str(lines)
+		x = x.replace("'", '"')
+		file.write(x)
 
 @eel.expose
 def get_path():
