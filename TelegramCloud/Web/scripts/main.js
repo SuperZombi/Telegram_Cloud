@@ -5,6 +5,10 @@ async function main(){
 	setup_arrow();
 	await gotopath(document.getElementById('path_str').innerHTML, auto=true);
 	if (!theme_unswer){await Success("Тёмная тема уже здесь!", 8000, [["Включить", change_theme]])}
+
+	if (await eel.check_updates_or_no()()){
+		await Warning("Доступно новое обновление!", 4000)
+	}
 }
 
 async function ask_theme(){
