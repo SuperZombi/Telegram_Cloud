@@ -1,0 +1,94 @@
+body
+{
+  background: #0d1117;
+  /*#111*/
+  /*#0d1117*/
+  /*#09161c*/
+  /*#181818*/
+  color: #f4f4f4;
+}
+#back{
+  background-color: darkorange;
+}
+#back:hover{
+  background-color: #FFAE1A;
+  border-color:  orange;
+}
+#back:active{
+  background-color: #D98000; 
+}
+input[type = "text"]{
+  color: white;
+}
+#details{
+  background: inherit;
+  color: white;
+  filter: drop-shadow(4px 4px 5px grey);
+}
+#search{
+  background: inherit;
+  color: white;
+  filter: drop-shadow(4px 4px 5px grey);
+}
+#search:hover{
+  filter: drop-shadow(5px 5px 8px darkgrey);
+}
+
+.Browse{
+ -webkit-text-stroke: 0.7px white;
+  color: white;
+}
+div.disabled{
+  background: #3D3D3D;
+  opacity: 0.5;
+}
+#Uploader{
+  border-color: #3D3D3D;
+}
+.flex_elem{
+  background-color: rgba(0, 0, 0, 0);
+}
+svg path{
+  fill: white;
+}
+.folder:hover{
+  background-color: #2572FF;
+}
+.folder:active{
+  background-color: #00C0FF;
+}
+.file:hover{
+  background-color: #E19200;
+}
+.file:active{
+  background-color: #FFBB61;
+}
+#sorting{
+  background-color: lightgrey;
+}
+#sort_menu{
+  background-color: grey;
+}
+.sort_elem:hover{
+  border-radius: 8px;
+  background-color: darkgrey;
+}
+.path_link:hover{
+  color: white;
+  background-color: grey;
+  border: 1px solid grey;
+}
+#updates_menu{
+  background-color: inherit;
+  filter: drop-shadow(2px 2px 5px grey);
+  border: 2px solid white;
+}
+#new_version{
+  background-color: ;
+}
+.version{
+  background-color: grey;
+}
+#old_version{
+  background-color: rgb(255, 0, 0, 0.8);
+}
