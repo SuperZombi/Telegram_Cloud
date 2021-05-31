@@ -4,6 +4,45 @@ async function main(){
 	document.getElementById('path_str').innerHTML = await eel.get_saved_path()();
 	setup_arrow();
 	await gotopath(document.getElementById('path_str').innerHTML, auto=true);
+	if (!theme_unswer){await Success("Тёмная тема уже здесь!", 8000, [["Включить", change_theme]])}
+}
+
+async function ask_theme(){
+	theme_unswer = await eel.check_theme()();
+	if (theme_unswer){
+		if (theme_unswer == "dark"){
+			document.getElementById("theme-link").setAttribute("href", "styles/dark.css");
+			document.getElementById("dark_mode").title = "Включить свет";
+			document.getElementById("dark_mode_img").src = "images/light.png";
+		}
+	}
+	setTimeout(function(){document.body.style.transition = "0.5s";},1000)
+}
+
+theme = "light";
+async function change_theme(){
+	let lightTheme = "styles/light.css";
+	let darkTheme = "styles/dark.css";
+
+	var link = document.getElementById("theme-link");
+	var currTheme = link.getAttribute("href");
+
+    if(currTheme == lightTheme)
+    {
+   		currTheme = darkTheme;
+   		theme = "dark";
+   		document.getElementById("dark_mode").title = "Включить свет";
+		document.getElementById("dark_mode_img").src = "images/light.png";
+    }
+    else
+    {    
+		currTheme = lightTheme;
+		theme = "light";
+		document.getElementById("dark_mode").title = "Выключить свет";
+		document.getElementById("dark_mode_img").src = "images/dark_light.png";
+    }
+    link.setAttribute("href", currTheme);
+    await eel.save_theme(theme);
 }
 
 async function setup_arrow(){
