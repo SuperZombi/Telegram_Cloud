@@ -1,4 +1,5 @@
 async function main(){
+	notifications_element = document.getElementById('notifications')
 	await eel.starting()();
 	document.getElementById('path_str').innerHTML = await eel.get_saved_path()();
 	setup_arrow();
@@ -38,7 +39,7 @@ async function check_updates(){
 		document.getElementById("change_list").innerHTML = unswer['change_list'];
 	}
 	else{
-		alert("Нет обновлений!")
+		await Success("Нет обновлений!")
 	}
 	document.body.style.cursor = "auto";
 	document.getElementById('check_update').style.cursor = "pointer";
@@ -295,13 +296,14 @@ async function build_path(){
 async function upload(){
 	path = document.getElementById('path_str').innerHTML;
 	if (global_array.lenth != 0){
-		await eel.upload(global_array, path)();
+		unswer = await eel.upload(global_array, path)();
+		for (i=0;i<unswer.length;i++){await Warning(unswer[i])}
 		array = await eel.read_path()();
 		build_path();
 		setTimeout(function() {
 			document.getElementById('progress_area').innerHTML = "";
 			document.getElementById("path_text").value = ""},
-			100);
+			200);
 	}
 }
 
@@ -370,7 +372,7 @@ async function rename_file(old, False=false){
 		
 		for (let i = 0; i < tmp_ar['files'].length; i++){
 			if (tmp_ar['files'][i] == name){
-				alert("Этот файл уже существует в этой папке!");
+				await Warning("Этот файл уже существует в этой папке!")
 				return;
 			}
 		}
@@ -401,7 +403,7 @@ async function rename_folder(old, False=false){
 		
 		for (let i = 0; i < tmp_ar['folders'].length; i++){
 			if (tmp_ar['folders'][i] == new_name){
-				alert("Эта папка уже существует в этой папке!");
+				await Warning("Эта папка уже существует в этой папке!")
 				return;
 			}
 		}
@@ -587,7 +589,7 @@ async function new_folder(what=""){
 			temp_arr = array['folders'];
 			for(var i = 0; i < temp_arr.length; i++) {
 				if (temp_arr[i] == name){
-					alert("Эта папка уже существует!");
+					await Warning("Эта папка уже существует!")
 					return;
 				}
 			}
@@ -617,8 +619,9 @@ async function show_more(){
 		more_showed_event = true;
 		more_showed = !more_showed;
 		if (more_showed){
-			document.getElementById('More').style.marginTop = "20px";
+			document.getElementById('More').style.display = "inline-block";
 			await new Promise(resolve => setTimeout(resolve, 100));
+			document.getElementById('More').style.marginTop = "20px";
 			document.getElementById('More').style.opacity = 1;
 			document.getElementById('create_img').src = "images/delete.png";
 			document.getElementById('Uploader').className = "disabled";
@@ -626,12 +629,13 @@ async function show_more(){
 		}
 		else{
 			document.getElementById('More').style.opacity = 0;
-			await new Promise(resolve => setTimeout(resolve, 80));
 			document.getElementById('More').style.marginTop = "-200px";
 			document.getElementById('create_img').src = "images/add.png";	
 			document.getElementById('Uploader').className = "";
 			document.getElementById('name').value = "";
 			document.getElementById('new_folder').style.display = "none";
+			await new Promise(resolve => setTimeout(resolve, 140));
+			document.getElementById('More').style.display = "none";
 			document.getElementById('more_button').title = "Больше";
 			show_event = false;
 		}
@@ -644,6 +648,11 @@ function gotopath(path, auto=false){
 		if (document.getElementById('path_str').innerHTML == path){
 			return;
 		}
+		document.getElementById('path_str').innerHTML = path;
+		eel.save_current_path(document.getElementById('path_str').innerHTML)();
+	}
+	if (auto){
+		hide_search();
 		document.getElementById('path_str').innerHTML = path;
 		eel.save_current_path(document.getElementById('path_str').innerHTML)();
 	}
@@ -689,6 +698,9 @@ function escape(event){
 		if (detail_showed){
 			hide_details();
 		}
+		else if (search_showed){
+			hide_search();
+		}
 		else if (showed_updates_menu){
 			hide_updates_menu();
 		}
@@ -720,6 +732,120 @@ async function delete_empty_folders(){
 	}
 }
 
+search_showed = false;
+async function search_show(){
+	if (!renaming_event){
+		if (!extra_func){
+			if (!search_showed){
+				document.getElementById('background_disabled').style.pointerEvents =  "none";
+				document.getElementById('background').style.filter = "blur(3px)";
+				document.getElementById('search').style.display = "flex";
+				await new Promise(resolve => setTimeout(resolve, 0));
+				document.getElementById('search').style.opacity = 1;
+				
+				setTimeout(function() {search_showed = true;}, 300);
+			}
+		}
+	}
+}
+async function hide_search(){
+	if (search_showed){
+		search_showed = false;
+		document.getElementById('background_disabled').style.pointerEvents =  "auto";
+		document.getElementById('background').style.filter = "blur(0px)";
+		document.getElementById('search').style.opacity = 0;
+		await new Promise(resolve => setTimeout(resolve, 300));
+		document.getElementById("search_input").value = ""
+		start_search()
+		document.getElementById('search').style.display = "none";
+	}
+}
+var timout_id;
+function search_wait(e){
+	if (timout_id) {
+		clearTimeout(timout_id);
+	}
+	timout_id = setTimeout(function(){
+		start_search();
+	}, 400);
+}
+async function start_search(){
+	text = document.getElementById("search_input").value
+	if (text){
+		array = await eel.search(text)();
+
+		let browser = document.getElementById('Search_Browser')
+		browser.innerHTML = "";
+
+		if (array['folders'].length == 0 && array['files'].length == 0 ){
+			p = document.createElement("p")
+			p.innerHTML = "Пусто"
+			browser.appendChild(p);
+		}
+
+		// Папки
+		for (let i = 0; i < array['folders'].length; i++){
+			main_div = document.createElement('div');
+			$(main_div).attr("class", "folder element");
+			$(main_div).attr("onclick", "gotopath('"+array['folders'][i]+"', auto=true);");
+
+			img = document.createElement('img');
+			$(img).attr("src", "images/folder.png");
+
+			div_text = document.createElement('div');
+			div_text.innerHTML = array['folders'][i];
+			$(div_text).attr("class", "element_name");
+			$(div_text).attr("title", "Перейти");
+			
+			main_div.appendChild(img);
+			main_div.appendChild(div_text);
+
+			browser.appendChild(main_div);
+		}
+
+		if (array['folders'].length != 0 && array['files'].length != 0 ){
+			// hr
+			hr = document.createElement('hr');
+			$(hr).attr("align", "center");
+			browser.appendChild(hr);
+		}
+
+		// Файлы
+		for (let i = 0; i < array['files'].length; i++){
+			if (array['files'][i] != ""){
+				main_div = document.createElement('div');
+				$(main_div).attr("class", "file element");
+
+				path_to_file_temp = array['files'][i].split('/'); path_to_file = "";
+				for (j=0;j<path_to_file_temp.length-1; j++){path_to_file+=path_to_file_temp[j]+"/"}
+
+				$(main_div).attr("onclick", "gotopath('"+path_to_file+"', auto=true);");
+				$(main_div).attr("id", "file:" + array['files'][i]);
+
+				img = document.createElement('img');
+				$(img).attr("src", await eel.file_type(array['files'][i])());
+
+				div_text = document.createElement('div');
+				div_text.innerHTML = array['files'][i];
+				$(div_text).attr("class", "element_name");
+				$(div_text).attr("title", "Перейти");
+				
+				main_div.appendChild(img);
+				main_div.appendChild(div_text);
+
+				browser.appendChild(main_div);
+			}
+		}
+	}
+	else{
+		browser = document.getElementById('Search_Browser')
+		browser.innerHTML = "";
+		p = document.createElement("p")
+		p.innerHTML = "Пусто"
+		browser.appendChild(p);
+	}
+	document.getElementById("search").style.height = document.getElementById('Search_Browser').offsetHeight + 150 + "px"
+}
 
 detail_showed = false;
 async function show_details(file){
@@ -776,7 +902,7 @@ async function download(){
 			document.getElementById('gotofile_button').style.display = "inline-block";
 		}
 		if (!unwser){
-			alert("Ошибка! Не удалось скачать файл!");
+			await Error("Ошибка!</br>Не удалось скачать файл "+document.getElementById('file_name').innerHTML, false)
 		}
 	}
 }
