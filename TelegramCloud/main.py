@@ -14,7 +14,7 @@ started = False
 PATH = []
 current_path = "/"
 current_sort = "by_alphabet"
-__version__ = 1.1
+__version__ = 1.2
 
 CONTENT_TYPES = ["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact",
                  "new_chat_members", "left_chat_member", "new_chat_title", "new_chat_photo", "delete_chat_photo",
@@ -109,6 +109,7 @@ def read_path():
 
 @eel.expose
 def upload(array, path):
+	logs = []
 	global x, y, PATH
 	x = 1
 	y = len(array)
@@ -119,6 +120,8 @@ def upload(array, path):
 		path_ = str(path) + str(name)
 
 		if file_exists(path_):
+			tmp_ = i.split("/")[-1]
+			logs.append("Файл " + str(tmp_) + " уже существует!")
 			print("  Файл " + str(i) + " уже существует!")
 			x+=1
 			continue
@@ -142,6 +145,8 @@ def upload(array, path):
 			file.write(str([path_, msg]) + "\n")
 
 		x+=1
+
+	return logs
 		
 
 @eel.expose
@@ -482,7 +487,7 @@ def download(file, directory):
 	try:
 		app.download_media(file_id, file_name=directory, progress=progress2)
 		return True
-	except (BadRequest, UnknownError) as e:
+	except:
 		None
 	return False
 
@@ -514,6 +519,20 @@ def file_size(file):
 	temp = eval(F[PATH.index(file)])[1]
 	return size_str(temp['file_size'])
 
+@eel.expose
+def search(text):
+	PATH = read_path()
+	array = {"files":[], "folders":[]}
+	for i in PATH:
+		if text in i:
+			temp = i.split("/")
+			if len(temp[-1]) > 0:
+				if text in temp[-1]:
+					array["files"].append(i)
+			else:
+				if text in temp[-2]:
+					array["folders"].append(i)
+	return array
 
 eel.init("Web")
 
