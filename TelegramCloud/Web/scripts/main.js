@@ -48,9 +48,6 @@ function hide_updates_menu(){
 	showed_updates_menu = false;
 	document.getElementById("updates_menu").style.display = "none";
 }
-async function goto_git_hub(){
-	eel.goto_git_hub()();
-}
 
 function build_progress(elem, id){
 	let p = document.createElement('p');
