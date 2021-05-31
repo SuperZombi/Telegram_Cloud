@@ -47,6 +47,10 @@ def check_updates():
 		return {'new_updates': False}
 
 
+@eel.expose()
+def check_updates_or_no():
+	return check_updates()['new_updates']
+
 @eel.expose
 def create_config(api_id, api_hash, phone_number):
 	global phone
