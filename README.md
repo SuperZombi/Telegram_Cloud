@@ -64,3 +64,23 @@ Version: <a id="version"><code>1.2</code></a>
   <li>Кнопка GitHub переехала в карусельное меню</li>
 </ul>
  </div>
+ 
+ </br></br>
+ <details>
+ <summary>Предыдущие обновления:</summary>
+ 
+ <table><tr>
+  <td>1.1</td>
+  <td>
+ Добавлено:
+<ul>
+ <li>Сортировка файлов</li>
+  <li>Проверка обновлений</li>
+</ul>
+ Изменено:
+<ul>
+ <li> Исправлены некоторые ошибки</li>
+</ul>
+ </td></tr>
+ </table>
+</details>
