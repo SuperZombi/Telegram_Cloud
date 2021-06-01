@@ -841,6 +841,7 @@ async function start_search(){
 			main_div.appendChild(div_text);
 
 			browser.appendChild(main_div);
+			document.getElementById("search").style.height = document.getElementById('Search_Browser').offsetHeight + 150 + "px"
 		}
 
 		if (array['folders'].length != 0 && array['files'].length != 0 ){
@@ -874,6 +875,7 @@ async function start_search(){
 				main_div.appendChild(div_text);
 
 				browser.appendChild(main_div);
+				document.getElementById("search").style.height = document.getElementById('Search_Browser').offsetHeight + 150 + "px"
 			}
 		}
 	}
