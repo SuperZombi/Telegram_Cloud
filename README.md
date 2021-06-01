@@ -4,7 +4,9 @@
 
 ### A client with its own hierarchy of folders, which uses the Telegram server like a cloud
 
-Version: <a id="version"><code>1.3</code></a>
+### Version: <a id="version"><code>1.3</code></a>
+
+Build: <code>1.3.1</code>
 
 </br></br></br>
 
@@ -74,6 +76,31 @@ Version: <a id="version"><code>1.3</code></a>
  <details>
  <summary>Предыдущие обновления:</summary>
  <table>
+  
+<tr><td>1.3.1</td>
+  <td>
+Добавлено:
+<ul>
+ <li>Авто определение темы</li>
+</ul>
+ </td></tr>  
+  
+  
+<tr><td>1.3</td>
+  <td>
+Добавлено:
+<ul>
+ <li>Тёмная тема</li>
+ <li>Авто проверка обновлений</li>
+</ul>
+ Изменено:
+<ul>
+ <li>Исправлен баг с окном поиска</li>
+  <li>Теперь поиск не обращает внимание на регистр</li>
+</ul>
+ </td></tr> 
+  
+  
    <tr><td>1.2</td>
   <td>
 Добавлено:
