@@ -4,7 +4,6 @@ async function main(){
 	document.getElementById('path_str').innerHTML = await eel.get_saved_path()();
 	setup_arrow();
 	await gotopath(document.getElementById('path_str').innerHTML, auto=true);
-	if (!theme_unswer){await Success("Тёмная тема уже здесь!", 8000, [["Включить", change_theme]])}
 
 	if (await eel.auto_check_update()()){
 		await Warning("Доступно новое обновление!", 4000)
@@ -18,6 +17,18 @@ async function ask_theme(){
 			document.getElementById("theme-link").setAttribute("href", "styles/dark.css");
 			document.getElementById("dark_mode").title = "Включить свет";
 			document.getElementById("dark_mode_img").src = "images/light.png";
+			theme = "dark";
+		}
+	}
+	else{
+		/*Определить тему системы*/
+		const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+		if (darkThemeMq.matches) {
+    		document.getElementById("theme-link").setAttribute("href", "styles/dark.css");
+			document.getElementById("dark_mode").title = "Включить свет";
+			document.getElementById("dark_mode_img").src = "images/light.png";
+			theme = "dark";
+			eel.save_theme(theme);
 		}
 	}
 	setTimeout(function(){document.body.style.transition = "0.5s";},1000)
