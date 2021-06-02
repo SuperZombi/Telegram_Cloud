@@ -25,8 +25,11 @@
  <li><a href="https://pypi.org/project/requests/">requests</a></li>
  <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
 </ul>
+
+ ### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Developer Instructions</a></br>
 </details>
-</br>
+</br></br>
+
 
 
 ### Limitations:
@@ -56,7 +59,6 @@
  <li>Извлеките архив в папку, где у вас был установлен Telegram Cloud.</li>
  Готово!
 </ol>
-
 
 </br></br>
 
