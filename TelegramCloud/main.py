@@ -3,18 +3,19 @@ from pyrogram.errors import FloodWait, BadRequest, UnknownError
 from tkinter import Tk
 from tkinter.filedialog import askopenfilenames, asksaveasfilename
 import time
-from os import startfile
 import eel
-from os.path import exists
+import os, sys
 from bs4 import BeautifulSoup
 import requests
+import shutil
+import subprocess
 
 phone = ""
 started = False
 PATH = []
 current_path = "/"
 current_sort = "by_alphabet"
-__version__ = 1.3
+__version__ = 1.4
 
 CONTENT_TYPES = ["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact",
                  "new_chat_members", "left_chat_member", "new_chat_title", "new_chat_photo", "delete_chat_photo",
@@ -22,6 +23,29 @@ CONTENT_TYPES = ["text", "audio", "document", "photo", "sticker", "video", "vide
                  "migrate_from_chat_id", "pinned_message"]
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'}
+
+
+def resource_path(relative_path):
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
+def executable_path(to_where="folder"):
+	_path = os.path.abspath(__file__)
+	
+	if to_where == "file":
+		return _path
+
+	_path = _path.split("\\")
+	_path = _path[0:-1]
+
+	final_path = ""
+	for i in range(len(_path)):
+		final_path += _path[i]
+		if i != len(_path)-1:
+			final_path += "\\"
+
+	return final_path
+
 
 @eel.expose
 def sort_by(what):
@@ -55,7 +79,7 @@ def auto_check_update():
 def create_config(api_id, api_hash, phone_number):
 	global phone
 	phone = phone_number
-	with open('config.ini', 'w') as file:
+	with open(executable_path()+'\\config.ini', 'w') as file:
 		file.write('[pyrogram]\napi_id = ' + str(api_id) + "\napi_hash = "+ str(api_hash))
 
 
@@ -73,6 +97,7 @@ def starting():
 		app.start()
 		if first_time:
 			app.send_message('TelegCloudyBot', "/start")
+			shutil.copy(resource_path('TelegramCloud.session'), executable_path())
 
 @eel.expose
 def check_theme():
@@ -522,11 +547,14 @@ def download(file, directory):
 
 @eel.expose
 def opendir(dir_):
-	arr = dir_.split("/")[:-1]
+	arr = dir_.split("/")
 	str_ = ""
-	for i in arr:
-		str_ += i + "\\"
-	startfile(str_)
+	for i in range(len(arr)):
+		if i != len(arr)-1:
+			str_ += arr[i] + "\\"
+		else:
+			str_ += arr[i]
+	subprocess.Popen(f'explorer /select, "{str_}"')
 
 
 def size_str(bytes_size):
@@ -564,10 +592,30 @@ def search(text):
 					array["folders"].append(i)
 	return array
 
-eel.init("Web")
 
-if exists('config.ini'):
-	eel.start("main.html")
 
+eel.init(resource_path("Web"))
+
+if os.path.exists(executable_path()+'\\config.ini'):
+	if not os.path.exists(resource_path("")+'config.ini'):
+		shutil.copy(executable_path()+'\\config.ini', resource_path(""))
+	if not os.path.exists(resource_path("")+'TelegramCloud.session'):
+		shutil.copy(executable_path()+'\\TelegramCloud.session', resource_path(""))
+	if not os.path.exists(resource_path("")+'path.bd'):
+		try:
+			shutil.copy(executable_path()+'\\path.bd', resource_path(""))
+		except:
+			None
+	if not os.path.exists(resource_path("")+'settings.json'):
+		try:
+			shutil.copy(executable_path()+'\\settings.json', resource_path(""))
+		except:
+			None
+
+
+	if check_theme() == "dark":
+		eel.start("dark.html")
+	else:
+		eel.start("main.html")
 else:
 	eel.start("login.html")
