@@ -1,4 +1,6 @@
 async function main(){
+	await ask_theme();
+	setTimeout(function(){document.body.style.transition = "0.5s";},1000)
 	notifications_element = document.getElementById('notifications')
 	await eel.starting()();
 	document.getElementById('path_str').innerHTML = await eel.get_saved_path()();
@@ -31,7 +33,6 @@ async function ask_theme(){
 			eel.save_theme(theme);
 		}
 	}
-	setTimeout(function(){document.body.style.transition = "0.5s";},1000)
 }
 
 theme = "light";
