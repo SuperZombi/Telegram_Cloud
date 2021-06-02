@@ -51,7 +51,7 @@
 
 Для того, чтобы сохранить все ваши файлы при обновлении вам нужно:
 <ol>
- <li>Скачайте архив.</li>
+ <li>Скачайте <a href="https://github.com/SuperZombi/Telegram_Cloud/#download">архив</a>.</li>
  <li>Удалите файл <code>Telegram Cloud.exe</code> в папке, где у вас сейчас установлена программа.</li>
  <li>Извлеките архив в папку, где у вас был установлен Telegram Cloud.</li>
  Готово!
