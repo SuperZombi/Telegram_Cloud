@@ -10,7 +10,7 @@
 
 ### How to authorize and use the program: <a href="https://superzombi.github.io/telegram-cloud.docs">Video Instructions</a>
 
-### Download
+### Download:
 <ul>
  <li><img src="https://img-premium.flaticon.com/png/512/888/888882.png?token=exp=1622637331~hmac=bf60c71ded33b51da0a6d32c3833d1f7" height=15px><a href="https://github.com/SuperZombi/Telegram_Cloud/releases"> Windows</a></li>
 </ul>
