@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import requests
 import shutil
 from PIL import Image
-from moviepy.editor import VideoFileClip
+import cv2
 
 phone = ""
 started = False
@@ -345,9 +345,9 @@ def create_preview(file):
 				os.makedirs("Temp")
 			except:
 				None
-			my_clip = VideoFileClip(file)
-			my_clip.save_frame("Temp\\frame.png", t=my_clip.duration/2)
-			my_clip.close()
+			vidcap = cv2.VideoCapture(file)
+			success,image = vidcap.read()
+			cv2.imwrite("Temp\\frame.png", image)
 			img = Image.open("Temp\\frame.png")
 			img = img.resize((int(400*img.width/img.height), 400))
 			img.save('Temp\\resized_image.png')
