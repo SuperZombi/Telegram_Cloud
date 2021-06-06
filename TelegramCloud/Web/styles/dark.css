@@ -92,3 +92,24 @@ svg path{
 #old_version{
   background-color: rgb(255, 0, 0, 0.8);
 }
+.header{
+  background-color: #101424;
+}
+.left_menu{
+  background-color: #181B27;
+}
+.right_menu{
+  background-color: #000B1D;
+}
+.selected_file{
+  background-color: #00C400;
+}
+.selected_file:hover{
+  background-color: #00C400;
+}
+.selected_folder{
+  background-color: #00C400;
+}
+.selected_folder:hover{
+  background-color: #00C400;
+}
