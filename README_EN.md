@@ -50,7 +50,7 @@
 
 
 ### How to install the update correctly?
-
+<details>
 <a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Video Instruction</a>
 
 In order to keep all your files on upgrade you need:
@@ -60,19 +60,35 @@ In order to keep all your files on upgrade you need:
  <li>Extract the archive to the folder where you have installed Telegram Cloud.</li>
  Done!
 </ol>
+</details>
+</br>
 
+### Keyboard shortcuts
+<details>
+<ul>
+	<li>Create a new folder: <code>shift</code>+<code>N</code></li>
+	<li>Select all files: <code>shift</code>+<code>A</code></li>
+	<li>Select the next file: <code>shift</code>+<code>⬇</code></li>
+	<li>Select the previous file: <code>shift</code>+<code>⬆</code></li>
+</ul>
+</details>
 </br></br>
+
+
 
 ### Change list:
 
 <div id="change_list">
 Added:
 <ul>
- <li>Auto theme detection</li>
+ <li>Selecting files</li>
+ <li>Files preview</li>
+ <li>Settings</li>
+ <li>English language support</li>
 </ul>
 Changed:
 <ul>
- <li>Now, after downloading, the explorer opens with the focus on the file</li>
+ <li>Cancel download</li>
  <li>Fixed some bugs</li>
 </ul>
 </div>
