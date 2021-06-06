@@ -2,9 +2,9 @@
 
 # Telegram Cloud
 
-### A client with its own hierarchy of folders, which uses the Telegram server like a cloud
+### Приложение-проводник, с собственной иерархией папок, использующее сервер Telegram как облако
 
-### Version: <a id="version"><code>1.4</code></a>
+### Версия: <a id="version"><code>1.4</code></a>
 
 </br>
 
@@ -12,15 +12,15 @@
 
 </br></br>
 
-### How to authorize and use the program: <a href="https://superzombi.github.io/telegram-cloud.docs">Video Instructions</a>
+### Как пользоваться программой: <a href="https://superzombi.github.io/telegram-cloud.docs">Видео Инструкции</a>
 
-### Download:
+### Скачать:
 <ul>
  <li><img src="https://img-premium.flaticon.com/png/512/888/888882.png?token=exp=1622637331~hmac=bf60c71ded33b51da0a6d32c3833d1f7" height=15px><a href="https://github.com/SuperZombi/Telegram_Cloud/releases"> Windows</a></li>
 </ul>
 </br>
 
-### Required Python libraries:
+### Необходимые библиотеки Python:
 <details>
 
 <ul>
@@ -30,18 +30,10 @@
  <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
 </ul>
 
- ### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Developer Instructions</a></br>
+ ### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Инструкции для разработчиков</a></br>
 </details>
-</br></br>
+</br>
 
-
-
-### Limitations:
-
-<ul>
- <li>Number of files: infinite</li>
-  <li>Single file size: 2 GB</li>
-</ul>
 
 ### Ограничения:
 
@@ -50,7 +42,7 @@
   <li>Размер одного файла: 2 ГБ</li>
 </ul>
 
-</br></br>
+</br>
 
 ### Как правильно установить обновление?
 
