@@ -67,12 +67,12 @@ In order to keep all your files on upgrade you need:
 <div id="change_list">
 Added:
 <ul>
- <li>Авто определение темы</li>
+ <li>Auto theme detection</li>
 </ul>
 Changed:
 <ul>
- <li>Теперь после скачивания проводник открывается с уже установленым фокусом файл</li>
- <li>Исправлены некоторые баги</li>
+ <li>Now, after downloading, the explorer opens with the focus on the file</li>
+ <li>Fixed some bugs</li>
 </ul>
 </div>
  
@@ -86,12 +86,12 @@ Changed:
   <td>
 Added:
 <ul>
- <li>Авто определение темы</li>
+ <li>Auto theme detection</li>
 </ul>
 Changed:
 <ul>
- <li>Теперь после скачивания проводник открывается с уже установленым фокусом файл</li>
- <li>Исправлены некоторые баги</li>
+ <li>Now, after downloading, the explorer opens with the focus on the file</li>
+ <li>Fixed some bugs</li>
 </ul>
  </td></tr>  
   
@@ -100,28 +100,28 @@ Changed:
   <td>
 Added:
 <ul>
- <li>Тёмная тема</li>
- <li>Авто проверка обновлений</li>
+ <li>Dark theme</li>
+ <li>Auto check for updates</li>
 </ul>
 Changed:
 <ul>
- <li>Исправлен баг с окном поиска</li>
-  <li>Теперь поиск не обращает внимание на регистр</li>
+ <li>Fixed bug with search window</li>
+  <li>Search now ignores case</li>
 </ul>
  </td></tr> 
   
   
-   <tr><td>1.2</td>
+<tr><td>1.2</td>
   <td>
 Added:
 <ul>
- <li>Поиск файлов</li>
-  <li>Красивые уведомления</li>
+ <li>File searcher</li>
+  <li>Beautiful notifications</li>
 </ul>
 Changed:
 <ul>
- <li>Исправлена ошибка карусельного меню</li>
-  <li>Кнопка GitHub переехала в карусельное меню</li>
+ <li>Fixed carousel menu bug</li>
+  <li>GitHub button has moved to carousel menu</li>
 </ul>
  </td></tr> 
   
@@ -130,12 +130,12 @@ Changed:
   <td>
  Added:
 <ul>
- <li>Сортировка файлов</li>
-  <li>Проверка обновлений</li>
+ <li>Sorting files</li>
+  <li>Checking for updates</li>
 </ul>
  Changed:
 <ul>
- <li> Исправлены некоторые ошибки</li>
+ <li>Fixed some bugs</li>
 </ul>
  </td></tr>
  </table>
