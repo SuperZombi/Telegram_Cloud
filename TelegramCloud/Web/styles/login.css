@@ -3,13 +3,13 @@ body{
   background: #34495e;
 }
 
-#help{
+.help{
   color: yellow;
   font-size: 15pt;
   font-style: italic;
   text-decoration: none;
 }
-#help:hover{
+.help:hover{
   text-decoration: underline white;
 }
 
@@ -78,4 +78,10 @@ body{
 
 #enter{
   margin-bottom: 20px;
+}
+#change_lang{
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  cursor: pointer;
 }
