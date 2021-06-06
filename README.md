@@ -16,7 +16,7 @@
 
 ### Скачать:
 <ul>
- <li><img src="https://img-premium.flaticon.com/png/512/888/888882.png?token=exp=1622637331~hmac=bf60c71ded33b51da0a6d32c3833d1f7" height=15px><a href="github.com/SuperZombi/Telegram_Cloud/releases/download/1.5/Telegram.Cloud.zip"> Windows</a></li>
+ <li><img src="https://img-premium.flaticon.com/png/512/888/888882.png?token=exp=1622637331~hmac=bf60c71ded33b51da0a6d32c3833d1f7" height=15px><a href="https://github.com/SuperZombi/Telegram_Cloud/releases/download/1.5/Telegram.Cloud.zip"> Windows</a></li>
 </ul>
 </br>
 
