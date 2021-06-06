@@ -5,10 +5,11 @@
 	<link rel="shortcut icon" href="images/TelegramCloud.png" type="image/png">
 	<link rel="stylesheet" href="styles/login.css">
 	<script type="text/javascript" src="/eel.js"></script>
+	<script type="text/javascript" src="languages.json"></script>
 </head>
 <body>
-<a style="margin-right: 20px;" href="https://docs.pyrogram.org/intro/setup" id="help" target="_blank">Help</a>
-<a href="https://superzombi.github.io/telegram-cloud.docs/" id="help" target="_blank">Video Instructions</a>
+<a style="margin-right: 20px;" href="https://my.telegram.org/apps" class="help" id="help1" target="_blank">Help</a>
+<a href="https://superzombi.github.io/telegram-cloud.docs/" class="help" id="help2" target="_blank">Video Instructions</a>
 
 <form name="MyForm" class="box" method="post" onsubmit="main(); return false;">
 	<h1 id="enter">Вход</h1>
@@ -21,6 +22,9 @@
 
 	<input id="submitbutton" type="submit" class="can_submit" value="Войти">
 </form>
+
+<button id="change_lang" onclick="change_lang()" title="Switch to English">English</button>
+
 <script type="text/javascript">
 	async function main(){
 		phone = document.getElementById('phone').value;
@@ -29,6 +33,29 @@
 		await eel.create_config(api_id, api_hash, phone)();
 		window.location.href = 'main.html';
 	}
+
+	async function change_lang(){
+		if (global_lang == "RU"){
+			await eel.change_lang("EN");
+		}
+		if (global_lang == "EN"){
+			await eel.change_lang("RU");
+		}
+		load_lang()
+	}
+
+	async function load_lang(){
+		global_lang = await eel.get_global_lang()();
+
+		document.getElementById("change_lang").innerHTML = LANGUAGES[global_lang].login.change_lang
+		document.getElementById("change_lang").title = LANGUAGES[global_lang].login.switch
+		document.getElementById("help1").innerHTML = LANGUAGES[global_lang].login.help
+		document.getElementById("help2").innerHTML = LANGUAGES[global_lang].login.instructions
+		document.getElementById("enter").innerHTML = LANGUAGES[global_lang].login.title
+		document.getElementById("phone").placeholder = LANGUAGES[global_lang].login.phone
+		document.getElementById("submitbutton").value = LANGUAGES[global_lang].login.enter
+	}
+	load_lang();
 </script>
 </body>
 </html>
