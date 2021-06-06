@@ -31,7 +31,6 @@
 
 ### Для разработчиков:
 <details>
-<summary></summary>
  
 ### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Инструкции для разработчиков</a></br>
    
