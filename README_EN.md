@@ -10,7 +10,7 @@
 
 <a href="README.md" ><img src="https://emojio.ru/images/twitter-64/1f1f7-1f1fa.png" width="30" height="30"></img>Читать на Русском</a>
 
-</br></br>
+</br>
 
 ### How to authorize and use the program: <a href="https://superzombi.github.io/telegram-cloud.docs">Video Instructions</a>
 
