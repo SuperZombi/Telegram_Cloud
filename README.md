@@ -20,32 +20,35 @@
 </ul>
 </br>
 
-### Необходимые библиотеки Python:
-<details>
-
-<ul>
- <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
-  <li><a href="https://pypi.org/project/Eel/">eel</a></li>
- <li><a href="https://pypi.org/project/requests/">requests</a></li>
- <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
-</ul>
-
- ### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Инструкции для разработчиков</a></br>
-</details>
-</br>
-
-
 ### Ограничения:
 
 <ul>
  <li>Количество файлов: бесконечно</li>
   <li>Размер одного файла: 2 ГБ</li>
 </ul>
-
 </br>
 
-### Как правильно установить обновление?
 
+### Для разработчиков:
+<details>
+<summary></summary>
+ 
+### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Инструкции для разработчиков</a></br>
+   
+### Необходимые библиотеки Python:
+<details>
+<ul>
+ <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
+  <li><a href="https://pypi.org/project/Eel/">eel</a></li>
+ <li><a href="https://pypi.org/project/requests/">requests</a></li>
+ <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
+</ul>
+</details>
+</details>
+</br></br>
+
+
+### Как правильно установить обновление?
 <a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Видео инструкция</a>
 
 Для того, чтобы сохранить все ваши файлы при обновлении вам нужно:
