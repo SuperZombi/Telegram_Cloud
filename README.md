@@ -6,7 +6,11 @@
 
 ### Version: <a id="version"><code>1.4</code></a>
 
-</br></br></br>
+</br>
+
+<a href="README_EN.md" ><img src="https://emojio.ru/images/twitter-64/1f1fa-1f1f8.png" width="30" height="30"></img>Read in English</a>
+
+</br></br>
 
 ### How to authorize and use the program: <a href="https://superzombi.github.io/telegram-cloud.docs">Video Instructions</a>
 
