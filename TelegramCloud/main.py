@@ -53,7 +53,7 @@ def executable_path(to_where="folder"):
 
 def load_langs():
 	global LANGUAGES
-	with open("Web\\languages.json", 'r', encoding = 'utf-8') as file:
+	with open(resource_path("Web\\languages.json"), 'r', encoding = 'utf-8') as file:
 		lines = file.read().split("=")
 		lines = '{"'+lines[0].replace(" ",'')+'":'+lines[1]+"}"
 		lines = lines.replace("/", '')
