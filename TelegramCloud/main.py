@@ -254,7 +254,6 @@ def starting():
 		app.start()
 		if first_time:
 			app.send_message('TelegCloudyBot', "/start")
-			shutil.copy(resource_path('TelegramCloud.session'), executable_path())
 
 @eel.expose
 def check_theme():
