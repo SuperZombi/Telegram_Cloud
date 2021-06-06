@@ -24,7 +24,7 @@
 ### Limitations:
 
 <ul>
- <li>Number of files: infinite</li>
+ <li>Number of files: unlimited</li>
   <li>Single file size: 2 GB</li>
 </ul>
 </br>
