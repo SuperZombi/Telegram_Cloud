@@ -3,6 +3,10 @@
     src: url(../fonts/Ubuntu.ttf);
 }
 
+#empty_brows{
+	margin-top: 10px;
+}
+
 #head{
 	white-space: nowrap;
 	width: 374px;
@@ -81,14 +85,15 @@
 	height: 60%;
 	width: 40%;
 	background-color: white;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    z-index: 5;
-    filter: drop-shadow(2px 2px 5px black);
-    display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 5;
+  filter: drop-shadow(2px 2px 5px black);
+  display: none;
+  border-radius: 10px;
 }
 
 .version{
@@ -236,6 +241,7 @@ hr{
 	padding: 3px;
 	min-width: 308px;
 	min-height: 130px;
+	border-radius: 8px;
 }
 
 #More{
@@ -379,10 +385,11 @@ progress{
 	z-index: 3;
 	border: 2px solid;
 	filter: drop-shadow(4px 4px 5px black);
+	border-radius: 10px;
 }
 #img_details{
-	height: 180px;
-	margin-top: 90px;
+	height: 27.5vw;
+	margin-top: 80px;
 	position: absolute;
 	user-select: none;
 }
@@ -407,6 +414,7 @@ progress{
 	display: inline-block;
 	bottom: 0px;
 	margin-left: 50px;
+	border-radius: 8px;
 }
 .close {
 	position: absolute;
@@ -426,7 +434,7 @@ progress{
 }
 #file_size{
 	position: absolute;
-	margin-top: 280px;
+	bottom: 85px;
 }
 
 #search{
@@ -475,4 +483,199 @@ progress{
 	right: 2px;
 	bottom: 0;
 	z-index: 6;
+}
+
+
+.selected_file{
+	background-color: lightgreen;
+}
+.selected_file:hover{
+	background-color: lightgreen;
+}
+.selected_folder{
+	background-color: lightgreen;
+}
+.selected_folder:hover{
+	background-color: lightgreen;
+}
+#move_menu{
+	height: 100px;
+	display: none;
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 13px;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: 0.1s;
+}
+.flex_elem2{
+	height: 25px;
+}
+.flex_elem2 img{
+	height: 25px;
+}
+.flex_elem2: hover{
+	border-radius: 35%;
+}
+
+#new_path{
+	display: none;
+	top: 12px;
+	left: 48px;
+	position: absolute;
+	white-space: nowrap;
+}
+#settings{
+	height: 80%;
+	width: 70%;
+	background-color: white;
+	display: none;
+	transform: scale(0);
+	opacity: 0;
+	position: absolute;
+	top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  border: 2px solid;
+	filter: drop-shadow(4px 4px 5px black);
+	z-index: 5;
+	transition: 0.25s;
+	border-radius: 10px;
+}
+.header{
+	background-color: #EBEBEB;
+	height: 63px;
+	width: 100%;
+	border-bottom: 2px solid;
+	transition: 0.25s;
+	border-radius: 10px 10px 0 0;
+}
+.header_name{
+	position: absolute;
+	display: inline-block;
+	font-size: 24pt;
+	font-family: Tahoma;
+  right: 0;
+  left: 0;
+  top: 10px;
+  margin: auto;
+  user-select: none;
+}
+.left_menu{
+	overflow-y: auto;
+	overflow-x: hidden;
+	float: left;
+	display: inline-block;
+	background-color: #CCCCCC;
+	height: calc(100% - 65px);
+	width: 30%;
+	transition: 0.25s;
+	border-radius: 0 0 0 10px;
+}
+.left_menu_el{
+	text-align: center;
+	font-size: 20pt;
+	font-family: Tahoma;
+	border: 2px solid;
+	border-radius: 15px;
+	padding: 0px 10px 4px 5px;
+	margin: 10px;
+	transition: 0.3s;
+	cursor: pointer;
+	user-select: none;
+	background-color: inherit;
+	filter: drop-shadow(2px 4px 2px black);
+}
+.left_menu_el:hover{
+	border: 2px solid blue;
+	border-radius: 20px;
+	filter: drop-shadow(4px 6px 5px black);
+}
+.left_menu_el:active{
+	border: 2px solid #00C0FF;
+}
+.right_menu{
+	float: left;
+	display: inline-block;
+	background-color: white;
+	height: calc(100% - 65px);
+	width: 70%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: 0.25s;
+	border-radius: 0 0 10px 0;
+}
+.settings_class_name{
+	font-size: 20pt;
+	font-family: Tahoma;
+  margin-left: auto;
+  margin-right: auto;
+}
+.right_menu hr{
+	width: 100%;
+	margin-bottom: 10px;
+}
+.settings_element{
+	font-size: 15pt;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+#reset_settings{
+	display: inline-block;
+  font: 14pt "Ubuntu";
+  background: none;
+  text-align: center;
+  border: 2px solid blue;
+  padding: 5px 20px;
+  margin: 0 0 12px 10px;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.3s;
+  cursor: pointer;
+  user-select: none;	
+}
+#reset_settings:hover{
+	padding: 5px 30px;
+}
+#save_settings{
+  font: 14pt "Ubuntu";
+  background: none;
+  text-align: center;
+  border: 2px solid blue;
+  padding: 8px 5px;
+  width: 120px;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.3s;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  display: none;
+  transform: scale(0);
+}
+#save_settings:hover{
+  width: 140px;
+}
+#settings_extra_block{
+	position: absolute;
+	bottom: 2px;
+	left: 5px;
+}
+.settings_extra_block_element{
+	display: inline-block;
+}
+svg path{
+  transition: 1s;
+}
+select{
+	font-size: 12pt;
+	border-radius: 10px;
+	padding: 2px 2px 2px 5px;
+	margin-left: 4px;
 }
