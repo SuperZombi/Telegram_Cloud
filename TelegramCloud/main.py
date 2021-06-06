@@ -8,14 +8,19 @@ import os, sys
 from bs4 import BeautifulSoup
 import requests
 import shutil
-import subprocess
+from PIL import Image
+from moviepy.editor import VideoFileClip
 
 phone = ""
 started = False
+previews_show = True
+preview_only_images = False
+updated_check_on_load = True
+global_lang = "RU"
 PATH = []
 current_path = "/"
 current_sort = "by_alphabet"
-__version__ = 1.4
+__version__ = 1.5
 
 CONTENT_TYPES = ["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact",
                  "new_chat_members", "left_chat_member", "new_chat_title", "new_chat_photo", "delete_chat_photo",
@@ -46,6 +51,144 @@ def executable_path(to_where="folder"):
 
 	return final_path
 
+def load_langs():
+	global LANGUAGES
+	with open("Web\\languages.json", 'r', encoding = 'utf-8') as file:
+		lines = file.read().split("=")
+		lines = '{"'+lines[0].replace(" ",'')+'":'+lines[1]+"}"
+		lines = lines.replace("/", '')
+		LANGUAGES = eval(lines)['LANGUAGES']
+load_langs()
+
+@eel.expose
+def get_global_lang():
+	global global_lang
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+			global_lang = lines["lang"]
+			return lines["lang"]
+
+	except:
+		return
+
+@eel.expose
+def change_lang(lang):
+	global global_lang
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+
+	except FileNotFoundError:
+		lines = {}
+
+	lines["lang"] = lang
+	global_lang = lang
+	with open('settings.json', 'w', encoding = 'utf-8') as file:
+		x = str(lines)
+		x = x.replace("'", '"')
+		file.write(x)	
+
+@eel.expose
+def get_updated_check_on_load():
+	global updated_check_on_load
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+			updated_check_on_load = lines["updated_check_on_load"]
+			return lines["updated_check_on_load"]
+
+	except:
+		return True
+
+@eel.expose
+def save_updated_check_on_load(val):
+	global updated_check_on_load
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+
+	except FileNotFoundError:
+		lines = {}
+
+	lines["updated_check_on_load"] = val
+	updated_check_on_load = val
+	with open('settings.json', 'w', encoding = 'utf-8') as file:
+		x = str(lines)
+		x = x.replace("'", '"')
+		file.write(x)
+
+@eel.expose
+def show_preview_setting():
+	global previews_show
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+			previews_show = lines["show_preview"]
+			return lines["show_preview"]
+
+	except:
+		return True
+
+@eel.expose
+def save_preview_settings(val):
+	global previews_show
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+
+	except FileNotFoundError:
+		lines = {}
+
+	lines["show_preview"] = val
+	previews_show = val
+	with open('settings.json', 'w', encoding = 'utf-8') as file:
+		x = str(lines)
+		x = x.replace("'", '"')
+		file.write(x)
+
+@eel.expose
+def get_preview_only_images():
+	global preview_only_images
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+			preview_only_images = lines["preview_only_images"]
+			return lines["preview_only_images"]
+
+	except:
+		return False
+
+@eel.expose
+def save_preview_only_images(val):
+	global preview_only_images
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+
+	except FileNotFoundError:
+		lines = {}
+
+	lines["preview_only_images"] = val
+	preview_only_images = val
+	with open('settings.json', 'w', encoding = 'utf-8') as file:
+		x = str(lines)
+		x = x.replace("'", '"')
+		file.write(x)	
+
+def save_sorting():
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+
+	except FileNotFoundError:
+		lines = {}
+
+	lines["sort_by"] = current_sort
+	with open('settings.json', 'w', encoding = 'utf-8') as file:
+		x = str(lines)
+		x = x.replace("'", '"')
+		file.write(x)
 
 @eel.expose
 def sort_by(what):
@@ -54,14 +197,28 @@ def sort_by(what):
 		current_sort = str(what) + "_reverse"
 	else:
 		current_sort = what
+	save_sorting()
 
 @eel.expose()
 def get_curent_arrow():
+	global current_sort
+	try:
+		with open('settings.json', 'r', encoding = 'utf-8') as file:
+			lines = eval(file.read())
+			current_sort = lines["sort_by"]
+
+	except:
+		current_sort = "by_alphabet"
 	return current_sort
 
 @eel.expose()
 def check_updates():
-	response = requests.get('https://github.com/SuperZombi/Telegram_Cloud')
+	if global_lang == "RU":
+		link = 'https://github.com/SuperZombi/Telegram_Cloud'
+	else:
+		link = 'https://github.com/SuperZombi/Telegram_Cloud/blob/main/README_EN.md'
+		
+	response = requests.get(link)
 	soup = BeautifulSoup(response.content, 'html.parser')
 	git_ver = float(soup.select('#user-content-version')[0].find('code').get_text())
 	if __version__ != git_ver:
@@ -106,8 +263,8 @@ def check_theme():
 			lines = eval(file.read())
 			return lines["theme"]
 
-	except FileNotFoundError:
-		return False
+	except:
+		return
 
 @eel.expose
 def save_theme(theme_name):
@@ -132,9 +289,13 @@ def get_path():
 	files = askopenfilenames(parent=root)
 	return files
 
-def progress(current, total):
-	global x, y
-	eel.progres(x, y, round(current * 100 / total, 1))
+async def progress(current, total, client):
+	global x, y, stop_transmit
+	stop_transm = eel.progres(x, y, round(current * 100 / total, 1))()
+	if stop_transm:
+		print(LANGUAGES[global_lang]["python"]["download_cancel"])
+		stop_transmit = True
+		client.stop_transmission()
 	print(str(x) + "/" + str(y) + " : " + str(round(current * 100 / total, 1)) + "%")
 
 
@@ -160,11 +321,44 @@ def read_path():
 	except:
 		None
 
+def create_preview(file):
+	index = file.split(".")[-1].lower()
+	for i in file_types:
+		for x in i:
+			if x == index:
+				type_of_file = file_types_str[file_types.index(i)]
+				break
+	if type_of_file == "image":
+		print(LANGUAGES[global_lang]["python"]["generating_preview"])
+		try:
+			os.makedirs("Temp")
+		except:
+			None
+		img = Image.open(file)
+		img = img.resize((int(400*img.width/img.height), 400))
+		img.save('Temp\\resized_image.'+index)
+		return 'Temp\\resized_image.'+index
+	if not preview_only_images:
+		if type_of_file == "video":
+			print(LANGUAGES[global_lang]["python"]["generating_preview"])
+			try:
+				os.makedirs("Temp")
+			except:
+				None
+			my_clip = VideoFileClip(file)
+			my_clip.save_frame("Temp\\frame.png", t=my_clip.duration/2)
+			my_clip.close()
+			img = Image.open("Temp\\frame.png")
+			img = img.resize((int(400*img.width/img.height), 400))
+			img.save('Temp\\resized_image.png')
+			return 'Temp\\resized_image.png'
+	return
 
 @eel.expose
 def upload(array, path):
 	logs = []
-	global x, y, PATH
+	global x, y, PATH, stop_transmit
+	stop_transmit = False
 	x = 1
 	y = len(array)
 	read_path()
@@ -175,22 +369,41 @@ def upload(array, path):
 
 		if file_exists(path_):
 			tmp_ = i.split("/")[-1]
-			logs.append("Файл " + str(tmp_) + " уже существует!")
-			print("  Файл " + str(i) + " уже существует!")
+			logs.append(LANGUAGES[global_lang]["python"]["file"] + str(tmp_) + LANGUAGES[global_lang]["python"]["already_exist"])
+			print("  "+LANGUAGES[global_lang]["python"]["file"] + str(i) + LANGUAGES[global_lang]["python"]["already_exist"])
 			x+=1
 			continue
 
 		print(i)
 		f = open(str(i), "rb")
 		
-		message = app.send_document('TelegCloudyBot', f, progress=progress)
+		message = app.send_document('TelegCloudyBot', f, progress=progress, progress_args=(app,))
+		if stop_transmit:
+			return logs
 		msg_id = message.message_id
+		if previews_show:
+			f2 = create_preview(i)
+			if f2:
+				f2_ = open(str(f2), "rb")
+				preview = app.send_document('TelegCloudyBot', f2_)
+				try:
+					shutil.rmtree("Temp\\")
+				except:
+					None
+				preview_msg_id = preview.message_id
+				preview_file_id = preview.document.file_id
 		for i in CONTENT_TYPES:
 			try:
 				media = message[i]
 				file_id = media['file_id']
 				size = media['file_size']
-				msg = {'file_id': file_id, 'file_size': size, 'message_id': msg_id}
+				if previews_show:
+					if f2:
+						msg = {'file_id': file_id, 'file_size': size, 'message_id': msg_id, 'preview_message_id': preview_msg_id, 'preview_file_id': preview_file_id}
+					else:
+						msg = {'file_id': file_id, 'file_size': size, 'message_id': msg_id}
+				else:
+					msg = {'file_id': file_id, 'file_size': size, 'message_id': msg_id}
 				break
 			except:
 				None
@@ -243,7 +456,8 @@ def build_path(path):
 				i.pop(0)
 
 			if len(i) == 1:
-				files.append(i[0])
+				if i[0] != "":
+					files.append(i[0])
 			else:
 				if not i[0] in folders:
 					folders.append(i[0])
@@ -278,7 +492,13 @@ def delete_file(path):
 	try:
 		app.delete_messages('TelegCloudyBot', id_)
 	except:
-		print("Ошибка! Файл '" + str(path) + "' не был удален с сервера!")
+
+		print(LANGUAGES[global_lang]["python"]["error_1"] + str(path) + LANGUAGES[global_lang]["python"]["error_2"])
+	try:
+		id_pre = eval(F[PATH.index(path)])[1]['preview_message_id']
+		app.delete_messages('TelegCloudyBot', id_pre)
+	except:
+		None
 	F.pop(PATH.index(path))
 	str_ = ""
 	for i in F:
@@ -328,7 +548,12 @@ def delete_folder(path):
 			try:
 				app.delete_messages('TelegCloudyBot', id_)
 			except:
-				print("Ошибка! Файл '" + str(i) + "' не был удален с сервера!")
+				print(LANGUAGES[global_lang]["python"]["error_1"] + str(i) + LANGUAGES[global_lang]["python"]["error_2"])
+			try:
+				id_pre = eval(F[PATH.index(i)])[1]['preview_message_id']
+				app.delete_messages('TelegCloudyBot', id_pre)	
+			except:
+				None
 		except:
 			#this is folder (not a file)
 			None
@@ -478,6 +703,7 @@ document = [
 ]
 
 file_types = [archives, audio, image, video, code, binary, document]
+file_types_str = ['archive', 'audio', 'image', 'video', 'code', 'binary', 'document']
 file_types_image = ["images/archive.png", "images/audio.png", "images/image.png", "images/video.png", "images/code.png", "images/binary.png", "images/document.png"]
 
 
@@ -485,7 +711,7 @@ file_types_image = ["images/archive.png", "images/audio.png", "images/image.png"
 def file_type(name):
 	default = "images/file.png"
 	try:
-		index = name.split(".")[-1]
+		index = name.split(".")[-1].lower()
 	except:
 		return default
 	for i in file_types:
@@ -554,18 +780,18 @@ def opendir(dir_):
 			str_ += arr[i] + "\\"
 		else:
 			str_ += arr[i]
-	subprocess.Popen(f'explorer /select, "{str_}"')
+	os.system(f'explorer /select, "{str_}"')
 
 
 def size_str(bytes_size):
 	if bytes_size > 1000000000:
-		return str(round(bytes_size/1073741824, 2)) + " ГБ"
+		return str(round(bytes_size/1073741824, 2)) + LANGUAGES[global_lang]["python"]["GB"]
 	elif bytes_size > 399999:
-		return str(round(bytes_size/1048576, 2)) + " МБ"
+		return str(round(bytes_size/1048576, 2)) + LANGUAGES[global_lang]["python"]["MB"]
 	elif bytes_size > 999:
-		return str(int(bytes_size/1024)) + " КБ"
+		return str(int(bytes_size/1024)) + LANGUAGES[global_lang]["python"]["KB"]
 	else:
-		return str(bytes_size) + " байт"
+		return str(bytes_size) + LANGUAGES[global_lang]["python"]["bites"]
 
 @eel.expose
 def file_size(file):
@@ -592,6 +818,71 @@ def search(text):
 					array["folders"].append(i)
 	return array
 
+@eel.expose
+def sort_this(array):
+	folders = []
+	files = []
+	for i in array:
+		if i[0] == "file":
+			files.append(i)
+		if i[0] == "folder":
+			folders.append(i)
+
+	if current_sort == "by_alphabet":
+		folders = sorted(folders)
+		files = sorted(files)
+		for i in files:
+			folders.append(i)
+		return folders
+	if current_sort == "by_alphabet_reverse":
+		folders = sorted(folders)
+		folders.reverse()
+		files = sorted(files)
+		files.reverse()
+		for i in files:
+			folders.append(i)
+		return folders
+	if current_sort == "by_date":
+		for i in files:
+			folders.append(i)
+		return folders
+	if current_sort == "by_date_reverse":
+		folders.reverse()
+		files.reverse()
+		for i in files:
+			folders.append(i)
+		return folders
+
+@eel.expose
+def show_preview(file):
+	if preview_only_images:
+		index = file.split(".")[-1]
+		for i in file_types:
+			for x in i:
+				if x == index:
+					type_of_file = file_types_str[file_types.index(i)]
+					break
+		if type_of_file != "image":
+			return
+
+	PATH = read_path()
+	with open('path.bd', 'r', encoding = 'utf-8') as file_:
+		F = file_.readlines()
+
+	temp = eval(F[PATH.index(file)])[1]
+	try:
+		msg_pre_id = temp['preview_file_id']
+		app.download_media(msg_pre_id, file_name="Web\\Temp\\file_preview."+file.split(".")[-1])
+		return "Temp\\file_preview."+file.split(".")[-1]
+	except:
+		return
+
+@eel.expose
+def delete_preview():
+	try:
+		shutil.rmtree("Web\\Temp\\")
+	except:
+		None
 
 
 eel.init(resource_path("Web"))
