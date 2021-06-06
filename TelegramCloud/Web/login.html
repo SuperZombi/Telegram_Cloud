@@ -46,7 +46,20 @@
 
 	async function load_lang(){
 		global_lang = await eel.get_global_lang()();
-
+		if (!global_lang){
+			var language = window.navigator ? (window.navigator.language ||
+		                  window.navigator.systemLanguage ||
+		                  window.navigator.userLanguage) : "ru";
+			language = language.substr(0, 2).toUpperCase();
+			if (language == "RU"){
+				global_lang = language
+			}
+			else{
+				global_lang = "EN"
+			}
+			eel.change_lang(global_lang);
+		}
+		
 		document.getElementById("change_lang").innerHTML = LANGUAGES[global_lang].login.change_lang
 		document.getElementById("change_lang").title = LANGUAGES[global_lang].login.switch
 		document.getElementById("help1").innerHTML = LANGUAGES[global_lang].login.help
