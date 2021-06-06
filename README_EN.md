@@ -48,28 +48,28 @@
 </br></br>
 
 
-### Как правильно установить обновление?
+### How to install the update correctly?
 
-<a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Видео инструкция</a>
+<a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Video Instruction</a>
 
-Для того, чтобы сохранить все ваши файлы при обновлении вам нужно:
+In order to keep all your files on upgrade you need:
 <ol>
- <li>Скачайте архив.</li>
- <li>Удалите файл <code>Telegram Cloud.exe</code> в папке, где у вас сейчас установлена программа.</li>
- <li>Извлеките архив в папку, где у вас был установлен Telegram Cloud.</li>
- Готово!
+ <li>Download the archive.</li>
+ <li>Delete the <code>Telegram Cloud.exe</code> file in the folder where you currently have the program installed.</li>
+ <li>Extract the archive to the folder where you have installed Telegram Cloud.</li>
+ Done!
 </ol>
 
 </br></br>
 
-### Список изменений:
+### Change list:
 
 <div id="change_list">
-Добавлено:
+Added:
 <ul>
  <li>Авто определение темы</li>
 </ul>
-Изменено:
+Changed:
 <ul>
  <li>Теперь после скачивания проводник открывается с уже установленым фокусом файл</li>
  <li>Исправлены некоторые баги</li>
@@ -79,16 +79,16 @@
  
  </br></br>
  <details>
- <summary>Предыдущие обновления:</summary>
+ <summary>Previous updates:</summary>
  <table>
   
 <tr><td>1.4</td>
   <td>
-Добавлено:
+Added:
 <ul>
  <li>Авто определение темы</li>
 </ul>
-Изменено:
+Changed:
 <ul>
  <li>Теперь после скачивания проводник открывается с уже установленым фокусом файл</li>
  <li>Исправлены некоторые баги</li>
@@ -98,12 +98,12 @@
   
 <tr><td>1.3</td>
   <td>
-Добавлено:
+Added:
 <ul>
  <li>Тёмная тема</li>
  <li>Авто проверка обновлений</li>
 </ul>
- Изменено:
+Changed:
 <ul>
  <li>Исправлен баг с окном поиска</li>
   <li>Теперь поиск не обращает внимание на регистр</li>
@@ -113,12 +113,12 @@
   
    <tr><td>1.2</td>
   <td>
-Добавлено:
+Added:
 <ul>
  <li>Поиск файлов</li>
   <li>Красивые уведомления</li>
 </ul>
-Изменено:
+Changed:
 <ul>
  <li>Исправлена ошибка карусельного меню</li>
   <li>Кнопка GitHub переехала в карусельное меню</li>
@@ -128,12 +128,12 @@
   
   <tr><td>1.1</td>
   <td>
- Добавлено:
+ Added:
 <ul>
  <li>Сортировка файлов</li>
   <li>Проверка обновлений</li>
 </ul>
- Изменено:
+ Changed:
 <ul>
  <li> Исправлены некоторые ошибки</li>
 </ul>
