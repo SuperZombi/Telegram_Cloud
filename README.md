@@ -41,6 +41,7 @@
   <li><a href="https://pypi.org/project/Eel/">eel</a></li>
  <li><a href="https://pypi.org/project/requests/">requests</a></li>
  <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
+ <li><a href="https://pypi.org/project/moviepy/">moviepy</a></li>
 </ul>
 </details>
 </details>
