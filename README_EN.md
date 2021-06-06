@@ -116,7 +116,7 @@ Changed:
 Added:
 <ul>
  <li>File searcher</li>
-  <li>Beautiful notifications</li>
+  <li>Notifications are awesome</li>
 </ul>
 Changed:
 <ul>
