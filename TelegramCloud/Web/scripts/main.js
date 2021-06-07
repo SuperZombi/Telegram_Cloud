@@ -1142,56 +1142,60 @@ async function up_or_down_key(e){
 	if (!detail_showed && !search_showed && !showed_updates_menu && !settings_showed){
 		if (shift_pressed){
 			if (e.keyCode == 78){
-				show_more()
-				new_folder()
-				document.getElementById('name').focus()
-			}
-			if (ierarhy_array['folders'].length>0 || ierarhy_array['files'].length>0){
-				if (selected_objs.length>0){
-					temp_selected_objs = await eel.sort_this(selected_objs)();
-					if (e.keyCode == 40){
-						cur_el = [temp_selected_objs[temp_selected_objs.length-1][0],temp_selected_objs[temp_selected_objs.length-1][1]]
-						//Вниз
-						elem_pos = ierarhy_array[cur_el[0]+"s"].indexOf(cur_el[1])
-						if (elem_pos == ierarhy_array[cur_el[0]+"s"].length-1){
-							if (cur_el[0] == "folder"){
-								if (ierarhy_array["files"].length>0){
-									select("file", ierarhy_array["files"][0])
-								}
-							}
-						}
-						else{
-							select(cur_el[0], ierarhy_array[cur_el[0]+"s"][elem_pos+1])
-						}
-						
-					}
-					if (e.keyCode == 38){
-						cur_el = [temp_selected_objs[0][0],temp_selected_objs[0][1]]
-						//Вверх
-						elem_pos = ierarhy_array[cur_el[0]+"s"].indexOf(cur_el[1])
-						if (elem_pos == 0){
-							if (cur_el[0] == "file"){
-								if (ierarhy_array["folders"].length>0){
-									select("folder", ierarhy_array["folders"][ierarhy_array["folders"].length-1])
-								}
-							}
-						}
-						else{
-							select(cur_el[0], ierarhy_array[cur_el[0]+"s"][elem_pos-1])
-						}
-					}
+				if (!show_event){
+					show_more()
+					new_folder()
+					document.getElementById('name').focus()
 				}
-				if (e.keyCode == 65){
-					selected_objs = []
-					for (j=0;j<ierarhy_array['folders'].length;j++){
-						selected_objs.push(["folder",ierarhy_array['folders'][j]])
-						document.getElementById("folder"+":"+ierarhy_array['folders'][j]).classList.add("selected_folder");
+			}
+			if (ierarhy_array != null){
+				if (ierarhy_array['folders'].length>0 || ierarhy_array['files'].length>0){
+					if (selected_objs.length>0){
+						temp_selected_objs = await eel.sort_this(selected_objs)();
+						if (e.keyCode == 40){
+							cur_el = [temp_selected_objs[temp_selected_objs.length-1][0],temp_selected_objs[temp_selected_objs.length-1][1]]
+							//Вниз
+							elem_pos = ierarhy_array[cur_el[0]+"s"].indexOf(cur_el[1])
+							if (elem_pos == ierarhy_array[cur_el[0]+"s"].length-1){
+								if (cur_el[0] == "folder"){
+									if (ierarhy_array["files"].length>0){
+										select("file", ierarhy_array["files"][0])
+									}
+								}
+							}
+							else{
+								select(cur_el[0], ierarhy_array[cur_el[0]+"s"][elem_pos+1])
+							}
+							
+						}
+						if (e.keyCode == 38){
+							cur_el = [temp_selected_objs[0][0],temp_selected_objs[0][1]]
+							//Вверх
+							elem_pos = ierarhy_array[cur_el[0]+"s"].indexOf(cur_el[1])
+							if (elem_pos == 0){
+								if (cur_el[0] == "file"){
+									if (ierarhy_array["folders"].length>0){
+										select("folder", ierarhy_array["folders"][ierarhy_array["folders"].length-1])
+									}
+								}
+							}
+							else{
+								select(cur_el[0], ierarhy_array[cur_el[0]+"s"][elem_pos-1])
+							}
+						}
 					}
-					for (i=0;i<ierarhy_array['files'].length;i++){
-						selected_objs.push(["file",ierarhy_array['files'][i]])
-						document.getElementById("file"+":"+ierarhy_array['files'][i]).classList.add("selected_file");
+					if (e.keyCode == 65){
+						selected_objs = []
+						for (j=0;j<ierarhy_array['folders'].length;j++){
+							selected_objs.push(["folder",ierarhy_array['folders'][j]])
+							document.getElementById("folder"+":"+ierarhy_array['folders'][j]).classList.add("selected_folder");
+						}
+						for (i=0;i<ierarhy_array['files'].length;i++){
+							selected_objs.push(["file",ierarhy_array['files'][i]])
+							document.getElementById("file"+":"+ierarhy_array['files'][i]).classList.add("selected_file");
+						}
+						show_move_manu()
 					}
-					show_move_manu()
 				}
 			}
 		}
