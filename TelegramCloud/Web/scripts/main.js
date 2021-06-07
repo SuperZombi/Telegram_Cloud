@@ -1,5 +1,5 @@
 async function main(){
-	await ask_theme2();
+	await ask_theme();
 
 	global_lang = await eel.get_global_lang()();
 	if (!global_lang){
@@ -28,15 +28,12 @@ async function main(){
 	if (show_preview){
 		document.getElementById('files_preview').checked = true;
 	}
-	only_images_swith = await eel.get_preview_only_images()();
-	if (only_images_swith){
-		document.getElementById('pictures_only').checked = true;
-	}
 
 	load_lang();
 	document.getElementById('lang_select').value = global_lang;
 
 	update_lightball()
+	memory_used()
 
 	updated_check_on_load = await eel.get_updated_check_on_load()();
 	if (updated_check_on_load){
@@ -47,12 +44,21 @@ async function main(){
 	}
 }
 
-async function ask_theme2(){
+async function memory_used(){
+	memoryused = await eel.memory_used()();
+	document.getElementById('memory_used_int').innerHTML = memoryused
+}
+
+async function ask_theme(){
 	theme_unswer = await eel.check_theme()();
 	if (theme_unswer){
 		if (theme_unswer == "dark"){
 			document.getElementById("theme-link").setAttribute("href", "styles/dark.css");
 			theme = "dark";
+		}
+		else{
+			document.getElementById("theme-link").setAttribute("href", "styles/light.css");
+			theme = "light";
 		}
 	}
 	else{
@@ -62,6 +68,11 @@ async function ask_theme2(){
     		document.getElementById("theme-link").setAttribute("href", "styles/dark.css");
 			theme = "dark";
 			eel.save_theme(theme);
+		}
+		else{
+    		document.getElementById("theme-link").setAttribute("href", "styles/light.css");
+			theme = "light";
+			eel.save_theme(theme);			
 		}
 	}
 }
@@ -73,29 +84,6 @@ function update_lightball(){
 	else{
 		document.getElementById("dark_mode").title = LANGUAGES[global_lang].main.dark_theme_off
 		document.getElementById("dark_mode_img").src = "images/dark_light.png";
-	}
-}
-
-async function ask_theme(){
-	theme_unswer = await eel.check_theme()();
-	if (theme_unswer){
-		if (theme_unswer == "dark"){
-			document.getElementById("theme-link").setAttribute("href", "styles/dark.css");
-			document.getElementById("dark_mode").title = LANGUAGES[global_lang].main.dark_theme_on
-			document.getElementById("dark_mode_img").src = "images/light.png";
-			theme = "dark";
-		}
-	}
-	else{
-		/*Определить тему системы*/
-		const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-		if (darkThemeMq.matches) {
-    		document.getElementById("theme-link").setAttribute("href", "styles/dark.css");
-			document.getElementById("dark_mode").title = LANGUAGES[global_lang].main.dark_theme_on
-			document.getElementById("dark_mode_img").src = "images/light.png";
-			theme = "dark";
-			eel.save_theme(theme);
-		}
 	}
 }
 
@@ -436,6 +424,7 @@ async function upload(){
 		for (i=0;i<unswer.length;i++){await Warning(unswer[i])}
 		array = await eel.read_path()();
 		build_path();
+		memory_used();
 		setTimeout(function() {
 			document.getElementById('progress_area').innerHTML = "";
 			document.getElementById("path_text").value = ""
@@ -652,6 +641,7 @@ async function delete_(what, current){
 			await eel.delete_folder(document.getElementById('path_str').innerHTML + current + "/")();
 			build_path();			
 		}
+		memory_used();
 	}
 	setTimeout(function() {deleted_event = false;}, 100);
 	setTimeout(function() {extra_func = false;}, 500);
@@ -1223,6 +1213,7 @@ async function delete_selected(){
 			}
 		}
 		build_path();
+		memory_used();
 		selected_objs = []
 		show_move_manu()
 	}	
@@ -1317,11 +1308,6 @@ async function save_settings(){
 			document.getElementById('files_preview').checked = setting_changed["files_preview"]
 			await eel.save_preview_settings(setting_changed["files_preview"])
 		}
-		if (keys[i] == "only_images_swith"){
-			only_images_swith = setting_changed["only_images_swith"]
-			document.getElementById('pictures_only').checked = setting_changed["only_images_swith"]
-			await eel.save_preview_only_images(setting_changed["only_images_swith"])
-		}
 		if (keys[i] == "updated_check_swith"){
 			updated_check_on_load = setting_changed["updated_check_swith"]
 			document.getElementById('updated_check').checked = setting_changed["updated_check_swith"]
@@ -1338,7 +1324,6 @@ async function save_settings(){
 }
 function reset_settings(){
 	document.getElementById('files_preview').checked = show_preview;
-	document.getElementById('pictures_only').checked = only_images_swith;
 	document.getElementById('updated_check').checked = updated_check_on_load;
 	document.getElementById('lang_select').value = global_lang;
 	setting_changed = {}
@@ -1347,7 +1332,7 @@ function reset_settings(){
 async function reset_settings_default(){
 	if (confirm(LANGUAGES[global_lang].main.reset_settings)){
 		setting_changed = {}
-		setting_changed = {"files_preview": true, "only_images_swith": false, "updated_check_swith": true}
+		setting_changed = {"files_preview": true, "updated_check_swith": true}
 		await save_settings()
 	}
 }
@@ -1379,20 +1364,7 @@ function files_preview_swith(){
 		show_save_button();
 	}
 }
-function only_images_swither(){
-	setting_changed['only_images_swith'] = document.getElementById('pictures_only').checked;
-	if (setting_changed['only_images_swith'] == only_images_swith){
-		delete setting_changed['only_images_swith'];
-		setTimeout(function() {
-			if (Object.keys(setting_changed).length == 0){
-				hide_settings_button();
-			}
-		}, 10)
-	}
-	else{
-		show_save_button();
-	}
-}
+
 function updated_check_swith(){
 	setting_changed['updated_check_swith'] = document.getElementById('updated_check').checked;
 	if (setting_changed['updated_check_swith'] == updated_check_on_load){
@@ -1465,8 +1437,6 @@ async function load_lang(){
 	
 	document.getElementById("files_preview_text").innerHTML = LANGUAGES[global_lang].main.files_preview
 	document.getElementById("files_preview_title").title = LANGUAGES[global_lang].main.files_preview_description
-	document.getElementById("pictures_only_text").innerHTML = LANGUAGES[global_lang].main.pictures_only
-	document.getElementById("pictures_only_title").title = LANGUAGES[global_lang].main.pictures_only_description
 
 	document.getElementById("dark_theme_title1").title = LANGUAGES[global_lang].main.dark_theme
 
@@ -1517,5 +1487,7 @@ async function load_lang(){
 	document.getElementById("upload_button").innerHTML = LANGUAGES[global_lang].main.upload
 	document.getElementById("lang_text").innerHTML = LANGUAGES[global_lang].main.lang_text
 
+	document.getElementById("memory_used_text").innerHTML = LANGUAGES[global_lang].main.memory_used
+	memory_used()
 	try{document.getElementById('empty_brows').innerHTML = LANGUAGES[global_lang].main.search_empty}catch{}
 }
