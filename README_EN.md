@@ -68,6 +68,7 @@ Added:
  <li>Files preview</li>
  <li>Settings</li>
  <li>English language support</li>
+ <li>Displaying memory usage</li>
 </ul>
 Changed:
 <ul>
@@ -89,6 +90,7 @@ Added:
  <li>Files preview</li>
  <li>Settings</li>
  <li>English language support</li>
+<li>Displaying memory usage</li>
 </ul>
 Changed:
 <ul>
