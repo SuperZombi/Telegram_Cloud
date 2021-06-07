@@ -892,9 +892,12 @@ def memory_used():
 		with open('path.bd', 'r', encoding = 'utf-8') as file_:
 			F = file_.readlines()
 		for i in F:
-			file_size = eval(i)[1]['file_size']
-			full_size += file_size
-	except:
+			try:
+				file_size = eval(i)[1]['file_size']
+				full_size += file_size
+			except:
+				None
+	except FileNotFoundError:
 		None
 	return size_str(full_size)
 
