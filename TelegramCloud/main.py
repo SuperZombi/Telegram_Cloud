@@ -807,15 +807,16 @@ def search(text):
 	PATH = read_path()
 	array = {"files":[], "folders":[]}
 	text = text.lower()
-	for i in PATH:
-		if text in i.lower():
-			temp = i.split("/")
-			if len(temp[-1]) > 0:
-				if text in temp[-1].lower():
-					array["files"].append(i)
-			else:
-				if text in temp[-2].lower():
-					array["folders"].append(i)
+	if PATH:
+		for i in PATH:
+			if text in i.lower():
+				temp = i.split("/")
+				if len(temp[-1]) > 0:
+					if text in temp[-1].lower():
+						array["files"].append(i)
+				else:
+					if text in temp[-2].lower():
+						array["folders"].append(i)
 	return array
 
 @eel.expose
