@@ -887,11 +887,14 @@ def delete_preview():
 @eel.expose
 def memory_used():
 	full_size = 0
-	with open('path.bd', 'r', encoding = 'utf-8') as file_:
-		F = file_.readlines()
-	for i in F:
-		file_size = eval(i)[1]['file_size']
-		full_size += file_size
+	try:
+		with open('path.bd', 'r', encoding = 'utf-8') as file_:
+			F = file_.readlines()
+		for i in F:
+			file_size = eval(i)[1]['file_size']
+			full_size += file_size
+	except:
+		None
 	return size_str(full_size)
 
 
