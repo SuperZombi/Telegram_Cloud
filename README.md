@@ -26,8 +26,6 @@
  <li>Количество файлов: бесконечно</li>
   <li>Размер одного файла: 2 ГБ</li>
 </ul>
-</br>
-
 <hr>
 
 ### Горячие клавиши
@@ -75,8 +73,7 @@
 </ul>
 </div>
  
- 
- </br></br>
+ </br>
  <details>
  <summary>Предыдущие обновления:</summary>
  <table>
@@ -156,12 +153,10 @@
  </table>
 </details>
 
-</br>
 <hr>
 
 #### <a href="https://www.donationalerts.com/r/super_zombi">Поддержать проект</a>
 
-</br>
 <hr>
 
 ### Для разработчиков:
