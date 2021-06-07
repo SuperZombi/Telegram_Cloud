@@ -181,95 +181,96 @@
 
 </div>
 
+<div id="memory_used"><a id="memory_used_text">Использовано памяти: </a><a id="memory_used_int">0</a></div>
+
 <div id="background" onclick="hide_details(); hide_sort_menu();hide_updates_menu();hide_search(); clear_select();">
+	
 	<div id="background_disabled">
 
-	<div id="head">
-		<div id="Path">
-			<a class="path_link" style="padding: 4px;" onclick="gotopath('/')"></a>
-			<a>/<a>
+		<div id="head">
+			<div id="Path">
+				<a class="path_link" style="padding: 4px;" onclick="gotopath('/')"></a>
+				<a>/<a>
+
+			</div>
+			<div id="path_str" style="display: none;">/</div>
+			
+			<div align="right" id="more_button" title="Больше" onclick="show_more();">
+				<img id="create_img" src="images/add.png">
+			</div>
 
 		</div>
-		<div id="path_str" style="display: none;">/</div>
-		
-		<div align="right" id="more_button" title="Больше" onclick="show_more();">
-			<img id="create_img" src="images/add.png">
+
+		<div id="FileBrowser">
+			
 		</div>
 
-	</div>
+		<div id="More">
+			<div id="more_block">
+				<div class="more_block_element">
+					<div class="flex_elem" id="create" title="Создать папку" onclick="new_folder();">
+						<img id="elem1_img" src="images/folderadd.png">
+					</div>
+				</div>
+				<form id="new_folder" method="post" onsubmit="new_folder('create');return false;">
+						<input id="name" placeholder="Создать папку" required>
+						<input id="submitbutton" type="submit" value="ОК">
+					</form>
 
-	<div id="FileBrowser">
-		
-	</div>
+				<div class="more_block_element">
+					<div class="flex_elem" id="search_but" title="Поиск" onclick="search_show();">
+						<img src="images/magnifier.png">
+					</div>
+				</div>
 
-	<div id="More">
-		<div id="more_block">
+
+				<div class="more_block_element">
+					<div class="flex_elem" id="clear" title="Удалить пустые папки" onclick="delete_empty_folders();">
+						<img src="images/paintbrush.png">
+					</div>
+				</div>
+
+				<div class="more_block_element">
+					<div class="flex_elem" id="dark_mode" title="Выключить свет" onclick="change_theme();">
+						<img src="images/dark_light.png" id="dark_mode_img">
+					</div>
+				</div>
+
+				<div class="more_block_element">
+					<div class="flex_elem" id="settins_but" title="Настройки" onclick="show_settings_category('general'); show_settings();">
+						<img src="images/settings.png">
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="move_menu" onclick="move_menu()">
 			<div class="more_block_element">
-				<div class="flex_elem" id="create" title="Создать папку" onclick="new_folder();">
-					<img id="elem1_img" src="images/folderadd.png">
+				<div class="flex_elem flex_elem2" id="move_button" title="Переместить" onclick="move_menu('show')">
+					<img src="images/send.png">
 				</div>
 			</div>
-			<form id="new_folder" method="post" onsubmit="new_folder('create');return false;">
-					<input id="name" placeholder="Создать папку" required>
-					<input id="submitbutton" type="submit" value="ОК">
-				</form>
+
+			<form id="new_path" method="post" onsubmit="move_more_files();return false;">
+				<input id="move_path" placeholder="Путь" required>
+				<input id="move_files_disabled" style="width:45px;" value="/Files" disabled>
+				<input type="submit" value="ОК">
+			</form>
 
 			<div class="more_block_element">
-				<div class="flex_elem" id="search_but" title="Поиск" onclick="search_show();">
-					<img src="images/magnifier.png">
+				<div class="flex_elem flex_elem2" id="delete_button" title="Удалить" onclick="delete_selected()">
+					<img src="images/trash2.png">
 				</div>
-			</div>
-
-
-			<div class="more_block_element">
-				<div class="flex_elem" id="clear" title="Удалить пустые папки" onclick="delete_empty_folders();">
-					<img src="images/paintbrush.png">
-				</div>
-			</div>
-
-			<div class="more_block_element">
-				<div class="flex_elem" id="dark_mode" title="Выключить свет" onclick="change_theme();">
-					<img src="images/dark_light.png" id="dark_mode_img">
-				</div>
-			</div>
-
-			<div class="more_block_element">
-				<div class="flex_elem" id="settins_but" title="Настройки" onclick="show_settings_category('general'); show_settings();">
-					<img src="images/settings.png">
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<div id="move_menu" onclick="move_menu()">
-		<div class="more_block_element">
-			<div class="flex_elem flex_elem2" id="move_button" title="Переместить" onclick="move_menu('show')">
-				<img src="images/send.png">
 			</div>
 		</div>
 
-		<form id="new_path" method="post" onsubmit="move_more_files();return false;">
-			<input id="move_path" placeholder="Путь" required>
-			<input id="move_files_disabled" style="width:45px;" value="/Files" disabled>
-			<input type="submit" value="ОК">
-		</form>
-
-		<div class="more_block_element">
-			<div class="flex_elem flex_elem2" id="delete_button" title="Удалить" onclick="delete_selected()">
-				<img src="images/trash2.png">
+		<div id="Uploader">
+			<input type="text" id="path_text" value="" readonly>
+			<button class="Browse" onclick="get_src()" id="upload_button">Загрузить</button>
+			<div id="progress_area">
 			</div>
 		</div>
-	</div>
-
-	<div id="Uploader">
-		<input type="text" id="path_text" value="" readonly>
-		<button class="Browse" onclick="get_src()" id="upload_button">Загрузить</button>
-		<div id="progress_area">
-		</div>
-	</div>
-
-	<div id="memory_used"><a id="memory_used_text">Использовано памяти: </a><a id="memory_used_int">0</a></div>
 
 	</div>
 </div>
