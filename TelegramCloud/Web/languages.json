@@ -21,10 +21,8 @@ LANGUAGES = {
 			"check_update_title":"Проверить обновления",
 
 			"files_preview":"Предпросмотр файлов",
-			"files_preview_description":"Программа не создает миниатюры файлов,\nчто позволяет загружать их быстрее",
-		
-			"pictures_only":"Только картинки",
-			"pictures_only_description":"Игнорировать всё кроме картинок",
+
+			"files_preview_description":"Если выключено, программа не будет\nсоздавать миниатюры файлов, что\nпозволяет загружать их быстрее",
 		
 			"dark_theme":"Тёмная тема",
 
@@ -101,7 +99,9 @@ LANGUAGES = {
 			"file_exists1":"Файл ",
 			"dont_save":"Не сохранять?",
 
-			"lang_text":"Язык:"
+			"lang_text":"Язык:",
+
+			"memory_used":"Использовано памяти: "
 		},
 		"python":{
 			"download_cancel":"Загрузка отменена!",
@@ -140,10 +140,7 @@ LANGUAGES = {
 			"check_update_title":"Check updates",
 
 			"files_preview":"Files preview",
-			"files_preview_description":"Program does not create thumbnails,\nso it can upload them faster",
-		
-			"pictures_only":"Only images",
-			"pictures_only_description":"Ignore all except images",
+			"files_preview_description":"If disabled, the program does\nnot create thumbnails of files,\nwhich allows to upload them faster",
 		
 			"dark_theme":"Dark theme",
 
@@ -220,7 +217,9 @@ LANGUAGES = {
 			"file_exists1":"The file ",
 			"dont_save":"Do not save?",
 
-			"lang_text":"Language:"
+			"lang_text":"Language:",
+
+			"memory_used":"Memory used: "
 		},
 		"python":{
 			"download_cancel":"Download canceled!",
