@@ -679,3 +679,15 @@ select{
 	padding: 2px 2px 2px 5px;
 	margin-left: 4px;
 }
+#memory_used{
+  font: 12pt "Ubuntu";
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+}
+#memory_used_int{
+	margin-left: 5px;
+	background-color: lightgreen;
+	padding: 3px 8px 3px 8px;
+	border-radius: 20px;
+}
