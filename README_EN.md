@@ -34,6 +34,7 @@
 <summary></summary>
 <ul>
 	<li>Create a new folder: <code>shift</code>+<code>N</code></li>
+	<li>Open Search: <code>shift</code>+<code>F</code></li>
 	<li>Select all files: <code>shift</code>+<code>A</code></li>
 	<li>Select the next file: <code>shift</code>+<code>⬇</code></li>
 	<li>Select the previous file: <code>shift</code>+<code>⬆</code></li>
