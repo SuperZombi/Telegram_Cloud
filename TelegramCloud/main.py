@@ -322,6 +322,7 @@ def read_path():
 
 def create_preview(file):
 	index = file.split(".")[-1].lower()
+	type_of_file = ""
 	for i in file_types:
 		for x in i:
 			if x == index:
@@ -882,6 +883,16 @@ def delete_preview():
 		shutil.rmtree("Web\\Temp\\")
 	except:
 		None
+
+@eel.expose
+def memory_used():
+	full_size = 0
+	with open('path.bd', 'r', encoding = 'utf-8') as file_:
+		F = file_.readlines()
+	for i in F:
+		file_size = eval(i)[1]['file_size']
+		full_size += file_size
+	return size_str(full_size)
 
 
 eel.init(resource_path("Web"))
