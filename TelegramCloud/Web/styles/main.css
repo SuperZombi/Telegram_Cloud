@@ -362,11 +362,12 @@ progress{
 	transition: 0.5s;
 }
 #background_disabled{
-	height: 98vh;
+	height: 100%;
+	min-height: 98vh;
 	width: 98vw;
 }
 #details{
-	position: absolute;
+	position: fixed;
 	background-color: white;
 	height: 80%;
 	width: 70%;
@@ -479,12 +480,11 @@ progress{
 	overflow-y: auto;
 }
 #notifications{
-	position: absolute;
+	position: fixed;
 	right: 2px;
 	bottom: 0;
 	z-index: 6;
 }
-
 
 .selected_file{
 	background-color: lightgreen;
@@ -501,7 +501,7 @@ progress{
 #move_menu{
 	height: 100px;
 	display: none;
-  position: absolute;
+  position: fixed;
   margin-top: 150px;
   margin-left: 13px;
   z-index: 1;
@@ -682,7 +682,7 @@ select{
 #memory_used{
   font: 12pt "Ubuntu";
 	position: fixed;
-	bottom: 10px;
+	top: 10px;
 	right: 10px;
 }
 #memory_used_int{
