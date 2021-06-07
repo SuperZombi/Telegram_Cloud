@@ -113,3 +113,6 @@ svg path{
 .selected_folder:hover{
   background-color: #00C400;
 }
+#memory_used_int{
+  background-color: green;
+}
