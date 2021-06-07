@@ -28,27 +28,24 @@
 </ul>
 </br>
 
+<hr>
 
-### Для разработчиков:
+### Горячие клавиши
 <details>
- 
-### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Инструкции для разработчиков</a></br>
-   
-### Необходимые библиотеки Python:
-<details>
+<summary></summary>
 <ul>
- <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
-  <li><a href="https://pypi.org/project/Eel/">eel</a></li>
- <li><a href="https://pypi.org/project/requests/">requests</a></li>
- <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
+	<li>Создать новую папку: <code>shift</code>+<code>N</code></li>
+	<li>Выделить все файлы: <code>shift</code>+<code>A</code></li>
+	<li>Выделить следующий файл: <code>shift</code>+<code>⬇</code></li>
+	<li>Выделить предыдущий файл: <code>shift</code>+<code>⬆</code></li>
 </ul>
-</details>
 </details>
 </br></br>
 
 
 ### Как правильно установить обновление?
 <details>
+<summary></summary>
 <a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Видео инструкция</a>
 
 Для того, чтобы сохранить все ваши файлы при обновлении вам нужно:
@@ -60,17 +57,6 @@
 </ol>
  </details>
 </br>
-
-### Комбинации клавиш
-<details>
-<ul>
-	<li>Создать новую папку: <code>shift</code>+<code>N</code></li>
-	<li>Выделить все файлы: <code>shift</code>+<code>A</code></li>
-	<li>Выделить следующий файл: <code>shift</code>+<code>⬇</code></li>
-	<li>Выделить предыдущий файл: <code>shift</code>+<code>⬆</code></li>
-</ul>
-</details>
-</br></br>
 
 ### Список изменений:
 
@@ -95,6 +81,22 @@
  <summary>Предыдущие обновления:</summary>
  <table>
   
+<tr><td>1.5</td><td>
+Добавлено:
+<ul>
+ <li>Выделение файлов</li>
+ <li>Предпросмотр файлов</li>
+ <li>Настройки</li>
+ <li>Поддержка английского языка</li>
+</ul>
+Изменено:
+<ul>
+ <li>Отмена загрузки</li>
+ <li>Исправлены некоторые баги</li>
+</ul>
+ </td></tr>  	 
+	 
+	 
 <tr><td>1.4</td>
   <td>
 Добавлено:
@@ -152,4 +154,29 @@
 </ul>
  </td></tr>
  </table>
+</details>
+
+</br>
+<hr>
+
+#### <a href="https://www.donationalerts.com/r/super_zombi">Поддержать проект</a>
+
+</br>
+<hr>
+
+### Для разработчиков:
+<details>
+<summary></summary>
+ 
+### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Инструкции для разработчиков</a></br>
+   
+### Необходимые библиотеки Python:
+<details>
+<ul>
+ <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
+  <li><a href="https://pypi.org/project/Eel/">eel</a></li>
+ <li><a href="https://pypi.org/project/requests/">requests</a></li>
+ <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
+</ul>
+</details>
 </details>
