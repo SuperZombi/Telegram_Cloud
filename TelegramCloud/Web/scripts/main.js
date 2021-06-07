@@ -873,6 +873,7 @@ async function search_show(){
 				document.getElementById('background_disabled').style.pointerEvents =  "none";
 				document.getElementById('background').style.filter = "blur(3px)";
 				document.getElementById('search').style.display = "flex";
+				document.getElementById('search_input').focus()
 				await new Promise(resolve => setTimeout(resolve, 0));
 				document.getElementById('search').style.opacity = 1;
 				
@@ -1141,6 +1142,11 @@ function shift_up(e){if(e.keyCode==16){shift_pressed = false;}}
 async function up_or_down_key(e){
 	if (!detail_showed && !search_showed && !showed_updates_menu && !settings_showed){
 		if (shift_pressed){
+			if (e.keyCode == 70){
+				if (!show_event){
+					search_show()
+				}
+			}
 			if (e.keyCode == 78){
 				if (!show_event){
 					show_more()
