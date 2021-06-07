@@ -33,7 +33,6 @@ async function main(){
 	document.getElementById('lang_select').value = global_lang;
 
 	update_lightball()
-	memory_used()
 
 	updated_check_on_load = await eel.get_updated_check_on_load()();
 	if (updated_check_on_load){
