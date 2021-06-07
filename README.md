@@ -35,8 +35,8 @@
 	<li>Создать новую папку: <code>shift</code>+<code>N</code></li>
 	<li>Открыть Поиск: <code>shift</code>+<code>F</code></li>
 	<li>Выделить все файлы: <code>shift</code>+<code>A</code></li>
-	<li>Выделить следующий файл: <code>shift</code>+<code>⬇</code></li>
-	<li>Выделить предыдущий файл: <code>shift</code>+<code>⬆</code></li>
+	<li>Выделить следующий файл: <code>shift</code>+<code>🔽</code></li>
+	<li>Выделить предыдущий файл: <code>shift</code>+<code>🔼</code></li>
 </ul>
 </details>
 </br>
