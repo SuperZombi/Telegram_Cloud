@@ -27,29 +27,24 @@
  <li>Number of files: unlimited</li>
   <li>Single file size: 2 GB</li>
 </ul>
-</br>
+<hr>
 
-
-### For developers:
+### Hotkeys
 <details>
- 
-### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Developer Instructions</a></br>
-   
-### Required Python libraries:
-<details>
+<summary></summary>
 <ul>
- <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
-  <li><a href="https://pypi.org/project/Eel/">eel</a></li>
- <li><a href="https://pypi.org/project/requests/">requests</a></li>
- <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
+	<li>Create a new folder: <code>shift</code>+<code>N</code></li>
+	<li>Select all files: <code>shift</code>+<code>A</code></li>
+	<li>Select the next file: <code>shift</code>+<code>⬇</code></li>
+	<li>Select the previous file: <code>shift</code>+<code>⬆</code></li>
 </ul>
 </details>
-</details>
-</br></br>
+</br>
 
 
 ### How to install the update correctly?
 <details>
+<summary></summary>
 <a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Video Instruction</a>
 
 In order to keep all your files on upgrade you need:
@@ -61,17 +56,6 @@ In order to keep all your files on upgrade you need:
 </ol>
 </details>
 </br>
-
-### Keyboard shortcuts
-<details>
-<ul>
-	<li>Create a new folder: <code>shift</code>+<code>N</code></li>
-	<li>Select all files: <code>shift</code>+<code>A</code></li>
-	<li>Select the next file: <code>shift</code>+<code>⬇</code></li>
-	<li>Select the previous file: <code>shift</code>+<code>⬆</code></li>
-</ul>
-</details>
-</br></br>
 
 
 
@@ -93,10 +77,25 @@ Changed:
 </div>
  
  
- </br></br>
+ </br>
  <details>
  <summary>Previous updates:</summary>
  <table>
+	 
+<tr><td>1.5</td><td>
+Added:
+<ul>
+ <li>Selecting files</li>
+ <li>Files preview</li>
+ <li>Settings</li>
+ <li>English language support</li>
+</ul>
+Changed:
+<ul>
+ <li>Cancel download</li>
+ <li>Fixed some bugs</li>
+</ul>
+ </td></tr>
   
 <tr><td>1.4</td>
   <td>
@@ -155,4 +154,28 @@ Changed:
 </ul>
  </td></tr>
  </table>
+</details>
+<hr>
+
+
+#### <a href="https://www.donationalerts.com/r/super_zombi">Support the project</a>
+
+<hr>
+
+
+### For developers:
+<details>
+<summary></summary>
+ 
+### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Developer Instructions</a></br>
+   
+### Required Python libraries:
+<details>
+<ul>
+ <li><a href="https://pypi.org/project/Pyrogram/">pyrogram</a></li>
+  <li><a href="https://pypi.org/project/Eel/">eel</a></li>
+ <li><a href="https://pypi.org/project/requests/">requests</a></li>
+ <li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup</a></li>
+</ul>
+</details>
 </details>
