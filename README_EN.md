@@ -2,7 +2,7 @@
 
 # Telegram Cloud
 
-### Explorer app, with its own folder hierarchy, using the Telegram server as a cloud
+### Explorer app, with its own folder hierarchy, using the Telegram server as a cloud.
 
 ### Version: <a id="version"><code>1.5</code></a>
 
