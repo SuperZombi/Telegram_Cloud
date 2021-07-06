@@ -207,10 +207,9 @@ async function get_src(){
 			else{
 				document.getElementById("path_text").value = names;
 			}
+			upload();
 		}
-
 		setTimeout(function() {srcEvent = false;}, 10);
-		upload();
 	}
 }
 
