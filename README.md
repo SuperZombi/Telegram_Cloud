@@ -1,4 +1,4 @@
-<img src="TelegramCloud/Web/images/TelegramCloud.png" width="300" align="right">
+<img src="TelegramCloud/Web/images/TelegramCloud.png" width="200" align="right">
 
 # Telegram Cloud
 
@@ -8,17 +8,15 @@
 
 </br>
 
-<a href="README_EN.md" ><img src="https://emojio.ru/images/twitter-64/1f1fa-1f1f8.png" width="30" height="30"></img> Read in English</a>
-
-</br></br>
+<a href="README_EN.md"><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" width="30"></img> Read in English</a>
+<hr>
 
 ### Как пользоваться программой: <a href="https://superzombi.github.io/telegram-cloud.docs">Видео Инструкции</a>
 
 ### Скачать:
 <ul>
- <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg/1161px-Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg.png" height=20px><a href="https://github.com/SuperZombi/Telegram_Cloud/releases/download/1.5/Telegram.Cloud.zip"> Windows</a></li>
+ <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg/1161px-Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg.png" width="20px"><a href="https://github.com/SuperZombi/Telegram_Cloud/releases/download/1.5/Telegram.Cloud.zip"> Windows</a></li>
 </ul>
-</br>
 
 ### Ограничения:
 
@@ -39,8 +37,6 @@
 	<li>Выделить предыдущий файл: <code>shift</code>+<code>🔼</code></li>
 </ul>
 </details>
-</br>
-
 
 ### Как правильно установить обновление?
 <details>
@@ -55,7 +51,6 @@
  Готово!
 </ol>
  </details>
-</br>
 
 ### Список изменений:
 
