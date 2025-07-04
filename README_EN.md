@@ -1,4 +1,4 @@
-<img src="TelegramCloud/Web/images/TelegramCloud.png" width="300" align="right">
+<img src="TelegramCloud/Web/images/TelegramCloud.png" width="200" align="right">
 
 # Telegram Cloud
 
@@ -8,18 +8,15 @@
 
 </br>
 
-<a href="README.md" ><img src="https://emojio.ru/images/twitter-64/1f1f7-1f1fa.png" width="30" height="30"></img> Читать на Русском</a>
-
-</br>
+<a href="README.md"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" width="30"></img> Читать на Русском</a>
+<hr>
 
 ### How to use the program: <a href="https://superzombi.github.io/telegram-cloud.docs">Video Instructions</a>
 
 ### Download:
 <ul>
- <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg/1161px-Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg.png" height=20px><a href="https://github.com/SuperZombi/Telegram_Cloud/releases/download/1.5/Telegram.Cloud.zip"> Windows</a></li>
+ <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg/1161px-Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg.png" width="20px"><a href="https://github.com/SuperZombi/Telegram_Cloud/releases/download/1.5/Telegram.Cloud.zip"> Windows</a></li>
 </ul>
-</br>
-
 
 ### Limitations:
 
@@ -40,8 +37,6 @@
 	<li>Select the previous file: <code>shift</code>+<code>🔼</code></li>
 </ul>
 </details>
-</br>
-
 
 ### How to install the update correctly?
 <details>
@@ -56,9 +51,6 @@ In order to keep all your files on upgrade you need:
  Done!
 </ol>
 </details>
-</br>
-
-
 
 ### Change list:
 
