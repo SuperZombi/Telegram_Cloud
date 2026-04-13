@@ -11,7 +11,7 @@
 <a href="README_EN.md"><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" width="30"></img> Read in English</a>
 <hr>
 
-### Как пользоваться программой: <a href="https://superzombi.github.io/telegram-cloud.docs">Видео Инструкции</a>
+### Как пользоваться программой: <a href="https://superzombi.github.io/Telegram_Cloud">Видео Инструкции</a>
 
 ### Скачать:
 <ul>
@@ -41,7 +41,7 @@
 ### Как правильно установить обновление?
 <details>
 <summary></summary>
-<a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Видео инструкция</a>
+<a href="https://superzombi.github.io/Telegram_Cloud/#upgrade">Видео инструкция</a>
 
 Для того, чтобы сохранить все ваши файлы при обновлении вам нужно:
 <ol>
@@ -161,7 +161,7 @@
 <details>
 <summary></summary>
  
-### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Инструкции для разработчиков</a></br>
+### <a href="https://superzombi.github.io/Telegram_Cloud/developer.html">Инструкции для разработчиков</a></br>
    
 ### Необходимые библиотеки Python:
 <details>

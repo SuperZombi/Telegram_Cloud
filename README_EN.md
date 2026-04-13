@@ -11,7 +11,7 @@
 <a href="README.md"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" width="30"></img> Читать на Русском</a>
 <hr>
 
-### How to use the program: <a href="https://superzombi.github.io/telegram-cloud.docs">Video Instructions</a>
+### How to use the program: <a href="https://superzombi.github.io/Telegram_Cloud">Video Instructions</a>
 
 ### Download:
 <ul>
@@ -41,7 +41,7 @@
 ### How to install the update correctly?
 <details>
 <summary></summary>
-<a href="https://superzombi.github.io/telegram-cloud.docs/#upgrade">Video Instruction</a>
+<a href="https://superzombi.github.io/Telegram_Cloud/#upgrade">Video Instruction</a>
 
 In order to keep all your files on upgrade you need:
 <ol>
@@ -162,7 +162,7 @@ Changed:
 <details>
 <summary></summary>
  
-### <a href="https://superzombi.github.io/telegram-cloud.docs/developer.html">Developer Instructions</a></br>
+### <a href="https://superzombi.github.io/Telegram_Cloud/developer.html">Developer Instructions</a></br>
    
 ### Required Python libraries:
 <details>
