@@ -1,0 +1,40 @@
+LANGUAGES = {
+	"RU":{
+		"switch":"Switch to English",
+		"up":"Наверх",
+		"back":"Вернуться",
+		"what_is":"Что такое Telegram Cloud?",
+		"what_is2":"Telegram Cloud — это приложение-проводник, которое выполняет функцию облака, используя сервера телеграма.",
+		"copy_link":"Копировать ссылку",
+
+		"contens":"Содержание:",
+		"install":"Установка",
+		"auth":"Авторизация",
+		"update":"Установка обновления",
+		"work":"Работа с приложением:",
+		"upload":"Загрузка файлов",
+		"folders":"Работа с папками",
+		"rename":"Переименование и перемещение",
+		"download":"Скачивание и удаление",
+		"dark":"Тёмная тема и поиск"
+	},
+	"EN":{
+		"switch":"Переключиться на Русский",
+		"up":"Up",
+		"back":"Back",
+		"what_is":"What is Telegram Cloud?",
+		"what_is2":"Telegram Cloud — this is Explorer app, with its own folder hierarchy, using the Telegram server as a cloud.",
+		"copy_link":"Copy link",
+
+		"contens":"Contents:",
+		"install":"Installation",
+		"auth":"Authorization",
+		"update":"Update installation",
+		"work":"App capabilities:",
+		"upload":"Uploading files",
+		"folders":"Folders operations",
+		"rename":"Renaming and moving",
+		"download":"Downloading and deleting",
+		"dark":"Dark theme and searching"
+	}
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Telegram Cloud Developer</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" href="docs/images/TelegramCloud.png" type="image/png">
+	<link rel="stylesheet" href="docs/src/main.css">
+	<script src="docs/src/playerjs.js" type="text/javascript"></script>
+	<script type="text/javascript" src="docs/src/languages.json"></script>
+	<script type="text/javascript" src="docs/src/detection.js"></script>
+</head>
+<body id="top">
+	<a href="#top"><img src="docs/images/up.png" id="up" title="Наверх"></a>
+
+	<canvas id="nightsky" width="1536" height="666"></canvas>
+	<div id="body">
+	<p>
+    	<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+
+    	<a id="href_text" href="https://github.com/SuperZombi/Telegram_Cloud">Вернуться</a>
+    </p>
+
+    <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+    </label>
+
+    <img src="https://emojio.ru/images/twitter-64/1f1fa-1f1f8.png" id="change_lan" title="Switch to English" onclick="switch_lang()">
+
+	<div align="center" style="margin-top: 80px;">
+		<h1 style="margin-bottom: 40px;">Telegram Cloud Developer</h1>
+		<img src="docs/images/TelegramCloud.png" style="float: right;">
+	
+		<div align="left" id="contents" style="margin-left: 10px;">
+			<h1>
+			<a href="#contents" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+			<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+			<div style="display: inline-block;" id="contens">Содержание:</div></h1>
+				<ul>
+				<li><a href="#installation" id="contens_install">Установка</a></li>
+				<li><a href="#authorization" id="contens_auth">Авторизация</a></li>
+				<li><a href="#upgrade" id="contens_update">Установка обновления</a></li>
+				<li><a class="disabled" id="contens_work">Работа с приложением:</a>
+					<ul>
+					<li><a href="#upload_files" id="contens_upload">Загрузка файлов</a></li>
+					<li><a href="#work_with_folders" id="contens_folders">Работа с папками</a></li>
+					<li><a href="#rename_and_moving" id="contens_rename">Переименование и перемещение</a></li>
+					<li><a href="#download_and_delete" id="contens_download">Скачивание и удаление</a></li>
+					<li><a href="#dark_theme_and_search" id="contens_dark">Тёмная тема и поиск</a></li>
+					</ul>
+				</li>
+			  </ul>
+		</div>
+
+	</div>
+
+	<div class="element" align="center">
+		<h1 id="installation">
+		<a href="#installation" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="install_h1">Установка:</a></h1>
+		<div class="player" id="player1"></div>
+	</div>
+		
+	<div class="element" align="center">
+		<h1 id="authorization">
+		<a href="#authorization" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="auth_h1">Авторизация:</a></h1>
+		<div class="player" id="player2"></div>
+	</div>
+
+	<div class="element" align="center" style="margin-bottom: 50px;">
+		<h1 id="upgrade">
+		<a href="#upgrade" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="update_h1">Установка обновления:</a></h1>
+		<div class="player" id="player3"></div>
+	</div>
+
+	<hr style="margin-top: 100px; margin-bottom: 60px;">
+
+	<div class="element" align="center">
+		<h1 id="upload_files">
+		<a href="#upload_files" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="upload_h1">Загрузка файлов:</a></h1>
+		<div class="player" id="player4"></div>
+	</div>
+
+	<div class="element" align="center">
+		<h1 id="work_with_folders">
+		<a href="#work_with_folders" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="folders_h1">Работа с папками:</a></h1>
+		<div class="player" id="player5"></div>
+	</div>
+
+	<div class="element" align="center">
+		<h1 id="rename_and_moving">
+		<a href="#rename_and_moving" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="rename_h1">Переименование и перемещение:</a></h1>
+		<div class="player" id="player6"></div>
+	</div>
+
+	<div class="element" align="center" style="margin-bottom: 50px;">
+		<h1 id="download_and_delete">
+		<a href="#download_and_delete" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="downl_h1">Скачивание/удаление:</a></h1>
+		<div class="player" id="player7"></div>
+	</div>
+	
+	<div class="element" align="center">
+		<h1 id="dark_theme_and_search">
+		<a href="#dark_theme_and_search" onclick="copy_link()" class="copy_link" title="Копировать ссылку">
+		<svg class="octicon-link" viewBox="0 0 16 16" version="1.1" width="20" height="20" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+		<a id="dark_h1">Тёмная тема и поиск:</a></h1>
+		<div class="player">
+			<iframe width="100%" style="min-height: 250px; max-height: 500px; height: 40vw;" src="https://www.youtube.com/embed/eLnUItMJwt0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</div>
+
+</div>
+<script src="docs/src/main.js" type="text/javascript"></script>
+<script src="docs/src/player_init_developer.js" type="text/javascript"></script>
+</body>
+</html>
